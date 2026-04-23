@@ -1,4 +1,4 @@
-# 💉 VaxMate (Progetto Vaccini)
+#  VaxMate (Progetto Vaccini)
 
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)]()
 [![Language](https://img.shields.io/badge/Language-Kotlin-purple.svg)]()
@@ -11,17 +11,17 @@ Il progetto simula lo sviluppo di un'applicazione medica reale, con un forte foc
 
 ---
 
-## ✨ Funzionalità Principali  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!DA RIVEREDE!!!!!!!!!!!!!!!!!!!!!!!!!!!
+##  Funzionalità Principali  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!DA RIVEREDE!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-* 📊 **Motore di Valutazione Clinica:** Analizza input come terapia biologica (es. anti-TNF, anti-IL17), età e condizioni cliniche del paziente.
-* 🛡️ **Classificazione Vaccini:** Restituisce in output un elenco chiaro di vaccini raccomandati, possibili o controindicati, con particolare attenzione ai vaccini vivi attenuati.
-* 🔐 **Area Riservata Medici:** Sistema di registrazione e login dedicato al personale sanitario. Permette di accedere a dashboard specifiche filtrate in base all'ospedale di appartenenza.
-* 📦 **Gestione Inventario:** Visualizzazione delle scorte e della disponibilità dei vaccini nelle singole strutture ospedaliere (accessibile solo agli utenti autenticati).
-* 🌍 **Supporto Multilingua:** Interfaccia interamente localizzata in Italiano e Inglese tramite il sistema di resources di Android.
+*  **Motore di Valutazione Clinica:** Analizza input come terapia biologica (es. anti-TNF, anti-IL17), età e condizioni cliniche del paziente.
+*  **Classificazione Vaccini:** Restituisce in output un elenco chiaro di vaccini raccomandati, possibili o controindicati, con particolare attenzione ai vaccini vivi attenuati.
+*  **Area Riservata Medici:** Sistema di registrazione e login dedicato al personale sanitario. Permette di accedere a dashboard specifiche filtrate in base all'ospedale di appartenenza.
+*  **Gestione Inventario:** Visualizzazione delle scorte e della disponibilità dei vaccini nelle singole strutture ospedaliere (accessibile solo agli utenti autenticati).
+*  **Supporto Multilingua:** Interfaccia interamente localizzata in Italiano e Inglese tramite il sistema di resources di Android.
 
 ---
 
-## 🛠️ Stack Tecnologico e Competenze
+##  Stack Tecnologico e Competenze
 
 Il progetto è sviluppato nativamente per Android utilizzando:
 * **Linguaggio:** Kotlin
@@ -30,7 +30,7 @@ Il progetto è sviluppato nativamente per Android utilizzando:
 
 ---
 
-## 📜 Licenza
+##  Licenza
 
 Questo progetto è open-source e rilasciato sotto i termini della **MIT License**.
 Per maggiori dettagli, consultare il file `LICENSE`.
