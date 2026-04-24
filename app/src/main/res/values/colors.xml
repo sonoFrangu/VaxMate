@@ -16,5 +16,7 @@
     <color name="secondary">#1565c0</color>
     <color name="on_secondary">#ffffff</color>
 
+    <color name="outline">#BDC9CA</color>
+
     <color name="error">#ba1a1a</color>
 </resources>

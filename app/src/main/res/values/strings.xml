@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VaxMate</string>
+    <string name="footer_text">Continuando, accetti i &lt;a href="https://example.com/termini"&gt;Termini di Servizio&lt;/a&gt; e la &lt;a href="https://example.com/privacy"&gt;Privacy Policy&lt;/a&gt; di VaxMate.</string>
 </resources>
