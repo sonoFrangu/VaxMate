@@ -105,7 +105,7 @@
                 android:textSize="18sp"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/icona_login"
-                app:iconGravity="textEnd" />
+                app:iconGravity="textStart" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
