@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">VaxMate</string>
+    <string name="welcome_text">Welcome to</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="text_or">OR</string>
+    <string name="btn_guest">Continue as guest</string>
+    <string name="footer_text"><![CDATA[By continuing, you agree to VaxMate\'s <a href="https://example.com/termini">Terms of Service</a> and <a href="https://example.com/privacy">Privacy Policy</a>.]]></string>
+</resources>

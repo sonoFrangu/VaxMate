@@ -1,4 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VaxMate</string>
-    <string name="footer_text">Continuando, accetti i &lt;a href="https://example.com/termini"&gt;Termini di Servizio&lt;/a&gt; e la &lt;a href="https://example.com/privacy"&gt;Privacy Policy&lt;/a&gt; di VaxMate.</string>
+    <string name="welcome_text">Benvenuto su</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Registrazione</string>
+    <string name="text_or">OPPURE</string>
+    <string name="btn_guest">Accedi come ospite</string>
+    <string name="footer_text"><![CDATA[Continuando, accetti i <a href="https://example.com/termini">Termini di Servizio</a> e la <a href="https://example.com/privacy">Privacy Policy</a> di VaxMate.]]></string>
 </resources>
