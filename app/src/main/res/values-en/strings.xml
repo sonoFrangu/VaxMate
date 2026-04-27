@@ -7,4 +7,13 @@
     <string name="text_or">OR</string>
     <string name="btn_guest">Continue as guest</string>
     <string name="footer_text"><![CDATA[By continuing, you agree to VaxMate\'s <a href="https://example.com/termini">Terms of Service</a> and <a href="https://example.com/privacy">Privacy Policy</a>.]]></string>
+
+    <string name="login_title">Sign in to VaxMate</string>
+    <string name="login_subtitle">Integrated Clinical Platform</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="hint_email">address@clinic.com</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="btn_login_text">Login</string>
+    <string name="no_account_register">Don\'t have an account? Sign up</string>
 </resources>

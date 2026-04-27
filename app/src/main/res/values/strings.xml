@@ -7,4 +7,13 @@
     <string name="text_or">OPPURE</string>
     <string name="btn_guest">Accedi come ospite</string>
     <string name="footer_text"><![CDATA[Continuando, accetti i <a href="https://example.com/termini">Termini di Servizio</a> e la <a href="https://example.com/privacy">Privacy Policy</a> di VaxMate.]]></string>
+
+    <string name="login_title">Accedi a VaxMate</string>
+    <string name="login_subtitle">Piattaforma Clinica Integrata</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="hint_email">indirizzo@clinica.it</string>
+    <string name="forgot_password">Password dimenticata?</string>
+    <string name="btn_login_text">Login</string>
+    <string name="no_account_register">Non hai un account? Registrati</string>
 </resources>
