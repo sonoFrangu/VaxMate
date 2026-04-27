@@ -7,6 +7,9 @@
         <item name="colorSecondary">@color/secondary</item>
         <item name="android:colorBackground">@color/surface</item>
     </style>
+    <style name="CircleImage">
+        <item name="cornerSize">50%</item>
+    </style>
 
     <style name="Theme.VaxMate" parent="Base.Theme.VaxMate" />
 </resources>
