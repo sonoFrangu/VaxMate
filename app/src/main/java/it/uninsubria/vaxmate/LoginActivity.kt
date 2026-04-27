@@ -1,5 +1,6 @@
 package it.uninsubria.vaxmate
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
@@ -16,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
         val tvFooter = findViewById<TextView>(R.id.tvFooter)
         val btnLanguage = findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.btnLanguage)
+        val btnLogin = findViewById<MaterialButton>(R.id.btnLogin)
 
         tvFooter.text = Html.fromHtml(
             getString(R.string.footer_text),
@@ -33,6 +35,11 @@ class LoginActivity : AppCompatActivity() {
             val newLang = if (currentLang.contains("en")) "it" else "en"
             val appLocales = LocaleListCompat.forLanguageTags(newLang)
             AppCompatDelegate.setApplicationLocales(appLocales)
+        }
+
+        btnLogin.setOnClickListener {
+            val intent = Intent(this, DoctorLoginActivity::class.java)
+            startActivity(intent)
         }
 
         tvFooter.movementMethod = LinkMovementMethod.getInstance()
