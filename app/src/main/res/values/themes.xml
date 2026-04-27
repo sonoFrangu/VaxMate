@@ -1,21 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    // Colori base app (Sfondo chiaro)
     <style name="Base.Theme.VaxMate" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorSecondary">@color/secondary</item>
         <item name="android:colorBackground">@color/surface</item>
     </style>
 
+    // Taglio a cerchio per icone e logo
     <style name="CircleImage">
         <item name="cornerSize">50%</item>
     </style>
 
+    // Card bianca per login
     <style name="Widget.VaxMate.Card" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">28dp</item>
         <item name="cardElevation">4dp</item>
         <item name="cardBackgroundColor">@color/white</item>
     </style>
 
+    // Campi input con bordi arrotondati
     <style name="Widget.VaxMate.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="boxCornerRadiusTopStart">12dp</item>
         <item name="boxCornerRadiusTopEnd">12dp</item>
@@ -25,5 +29,45 @@
         <item name="hintTextColor">@color/primary</item>
     </style>
 
+    // Testo secondario scuro (es. "Benvenuto su")
+    <style name="TextAppearance.VaxMate.Welcome" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    // Titolo gigante in grassetto
+    <style name="TextAppearance.VaxMate.Display" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textSize">57sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    // Bottone principale pieno
+    <style name="Widget.VaxMate.Button.Primary" parent="Widget.Material3.Button">
+        <item name="cornerRadius">999dp</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="iconTint">@color/on_primary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    // Bottone vuoto con bordo
+    <style name="Widget.VaxMate.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">999dp</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="iconTint">@color/primary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    // Bottone senza sfondo (solo testo)
+    <style name="Widget.VaxMate.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="iconTint">@color/on_surface</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    // Collegamento del tema per Manifest
     <style name="Theme.VaxMate" parent="Base.Theme.VaxMate" />
 </resources>

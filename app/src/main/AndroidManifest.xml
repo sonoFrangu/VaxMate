@@ -14,7 +14,7 @@
 
         <!-- MOMENTANEAMENTE LOGIN COME SCHERMATA INIZIALE -->
         <activity
-            android:name=".DoctorLoginActivity"
+            android:name=".LoginActivity"
             android:exported="true">
 
             <intent-filter>
