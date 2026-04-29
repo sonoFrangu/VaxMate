@@ -16,6 +16,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val etFirstName = findViewById<TextInputEditText>(R.id.etFirstName)
         val etLastName = findViewById<TextInputEditText>(R.id.etLastName)
+        val etEmail = findViewById<TextInputEditText>(R.id.etRegisterEmail)
         val etHospital = findViewById<MaterialAutoCompleteTextView>(R.id.etHospital)
         val etPassword = findViewById<TextInputEditText>(R.id.etRegisterPassword)
         val etConfirmPassword = findViewById<TextInputEditText>(R.id.etConfirmPassword)
@@ -27,20 +28,22 @@ class RegisterActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, ospedali)
         etHospital.setAdapter(adapter)
 
+        // FIX: Forza l'apertura del menu al click
+        etHospital.setOnClickListener {
+            etHospital.showDropDown()
+        }
+
         btnRegister.setOnClickListener {
             val pass1 = etPassword.text.toString()
             val pass2 = etConfirmPassword.text.toString()
 
             if (pass1 != pass2) {
-                // PROVA FATTA CON IA
                 Log.e("VaxMate_Debug", "ERRORE: Le password non corrispondono!")
             } else {
-                // PROVA FATTA CON IA
-                Log.d("VaxMate_Debug", "--- NUOVA REGISTRAZIONE ---")
-                Log.d("VaxMate_Debug", "Nome: ${etFirstName.text}")
-                Log.d("VaxMate_Debug", "Cognome: ${etLastName.text}")
+                Log.d("VaxMate_Debug", "--- REGISTRAZIONE ---")
+                Log.d("VaxMate_Debug", "Nome: ${etFirstName.text} ${etLastName.text}")
                 Log.d("VaxMate_Debug", "Ospedale: ${etHospital.text}")
-                Log.d("VaxMate_Debug", "Password ok!")
+                Log.d("VaxMate_Debug", "Email: ${etEmail.text}")
             }
         }
 
