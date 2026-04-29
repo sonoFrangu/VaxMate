@@ -1,25 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    // Colori base app (Sfondo scuro)
     <style name="Base.Theme.VaxMate" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorSecondary">@color/secondary</item>
         <item name="android:colorBackground">@color/on_surface</item>
     </style>
 
-    // Taglio a cerchio per icone e logo
     <style name="CircleImage">
         <item name="cornerSize">50%</item>
     </style>
 
-    // Card grigio scuro per contrasto
     <style name="Widget.VaxMate.Card" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">28dp</item>
         <item name="cardElevation">4dp</item>
         <item name="cardBackgroundColor">@color/on_surface_variant</item>
     </style>
 
-    // Campi input con bordi arrotondati
     <style name="Widget.VaxMate.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="boxCornerRadiusTopStart">12dp</item>
         <item name="boxCornerRadiusTopEnd">12dp</item>
@@ -27,22 +24,41 @@
         <item name="boxCornerRadiusBottomEnd">12dp</item>
         <item name="boxStrokeColor">@color/primary</item>
         <item name="hintTextColor">@color/primary</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
     </style>
 
-    // Testo secondario chiaro (leggibile su nero)
+    <style name="Widget.VaxMate.TextInputLayout.Dropdown" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="hintTextColor">@color/primary</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="Widget.VaxMate.TextInputEditText" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="TextAppearance.VaxMate.Welcome" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/surface</item>
     </style>
 
-    // Titolo gigante in grassetto
     <style name="TextAppearance.VaxMate.Display" parent="TextAppearance.Material3.DisplayLarge">
         <item name="android:textSize">57sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/primary</item>
     </style>
 
-    // Bottone principale pieno
     <style name="Widget.VaxMate.Button.Primary" parent="Widget.Material3.Button">
         <item name="cornerRadius">999dp</item>
         <item name="backgroundTint">@color/primary</item>
@@ -51,7 +67,6 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-    // Bottone vuoto con bordo
     <style name="Widget.VaxMate.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
         <item name="cornerRadius">999dp</item>
         <item name="strokeColor">@color/primary</item>
@@ -61,13 +76,11 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-    // Bottone chiaro senza sfondo (solo testo)
     <style name="Widget.VaxMate.Button.Text" parent="Widget.Material3.Button.TextButton">
         <item name="android:textColor">@color/surface</item>
         <item name="iconTint">@color/surface</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    // Collegamento del tema per Manifest
     <style name="Theme.VaxMate" parent="Base.Theme.VaxMate" />
 </resources>
