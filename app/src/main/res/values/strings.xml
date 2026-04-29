@@ -16,4 +16,13 @@
     <string name="forgot_password">Password dimenticata?</string>
     <string name="btn_login_text">Login</string>
     <string name="no_account_register">Non hai un account? Registrati</string>
+
+    <string name="label_first_name">Nome</string>
+    <string name="label_last_name">Cognome</string>
+    <string name="label_confirm_password">Conferma Password</string>
+    <string name="register_title">Crea il tuo Account</string>
+    <string name="register_subtitle">Unisciti alla piattaforma clinica integrata</string>
+    <string name="label_full_name">Nome e Cognome</string>
+    <string name="label_hospital">Ospedale di competenza</string>
+    <string name="already_have_account">Hai già un account? Accedi</string>
 </resources>

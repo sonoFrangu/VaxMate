@@ -30,6 +30,7 @@
             android:exported="false" />
 
         <activity android:name=".DoctorLoginActivity" />
+        <activity android:name=".RegisterActivity" />
 
     </application>
 

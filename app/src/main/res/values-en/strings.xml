@@ -16,4 +16,13 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="btn_login_text">Login</string>
     <string name="no_account_register">Don\'t have an account? Sign up</string>
+
+    <string name="label_first_name">First Name</string>
+    <string name="label_last_name">Last Name</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="register_title">Create your Account</string>
+    <string name="register_subtitle">Join the integrated clinical platform</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="label_hospital">Affiliated Hospital</string>
+    <string name="already_have_account">Already have an account? Login</string>
 </resources>
