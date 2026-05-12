@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground"
-    android:padding="24dp">
+    android:background="@color/surface">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardRegister"
         style="@style/Widget.VaxMate.Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/tvGoToLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/space_lg"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvGoToLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
 
         <LinearLayout
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="@dimen/space_lg">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="80dp"
@@ -31,26 +31,23 @@
                 app:shapeAppearanceOverlay="@style/CircleImage" />
 
             <TextView
+                style="@style/TextAppearance.VaxMate.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/register_title"
-                android:textColor="?attr/colorOnSurface"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="@dimen/space_md"
+                android:text="@string/register_title" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="24dp"
-                android:baselineAligned="false">
+                android:layout_marginTop="@dimen/space_lg"
+                android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.VaxMate.TextInputLayout"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/space_sm"
                     android:layout_marginTop="0dp"
                     android:hint="@string/label_first_name">
 
@@ -64,7 +61,7 @@
                     style="@style/Widget.VaxMate.TextInputLayout"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/space_sm"
                     android:layout_marginTop="0dp"
                     android:hint="@string/label_last_name">
 
@@ -125,23 +122,25 @@
                 android:id="@+id/btnDoRegister"
                 style="@style/Widget.VaxMate.Button.Primary"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/btn_register" />
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/space_lg"
+                android:text="@string/btn_register"
+                app:icon="@drawable/icona_registrazione"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/icon_button_padding" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tvGoToLogin"
+        style="@style/TextAppearance.VaxMate.Body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="@dimen/space_lg"
         android:text="@string/already_have_account"
-        android:textColor="?attr/colorOnSurface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardRegister" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
