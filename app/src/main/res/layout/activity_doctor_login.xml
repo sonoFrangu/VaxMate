@@ -10,50 +10,44 @@
         style="@style/Widget.VaxMate.Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/space_lg"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvRegister"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:gravity="center_horizontal"
+            android:padding="@dimen/space_lg">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgLogo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:scaleType="centerInside"
                 android:src="@drawable/logo_vaxmate"
+                android:scaleType="centerInside"
                 app:shapeAppearanceOverlay="@style/CircleImage" />
 
             <TextView
+                style="@style/TextAppearance.VaxMate.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/login_title"
-                android:textColor="?attr/colorOnSurface"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="@dimen/space_md"
+                android:text="@string/login_title"/>
 
             <TextView
+                style="@style/TextAppearance.VaxMate.Subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/login_subtitle"
-                android:textColor="?attr/colorOutline"
-                android:textSize="16sp" />
+                android:layout_marginTop="@dimen/space_xs"
+                android:text="@string/login_subtitle" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.VaxMate.TextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:hint="@string/label_email"
                 app:startIconDrawable="@drawable/ic_email">
 
@@ -67,18 +61,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/space_md"
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/TextAppearance.VaxMate.Body"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/label_password"
-                    android:textColor="?attr/colorOnSurface"
                     android:textStyle="bold" />
 
                 <TextView
+                    style="@style/TextAppearance.VaxMate.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/forgot_password"
@@ -100,31 +95,29 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDoLogin"
+                style="@style/Widget.VaxMate.Button.Primary"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="@color/primary"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/space_lg"
                 android:text="@string/btn_login_text"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                app:cornerRadius="12dp"
                 app:icon="@drawable/icona_login"
-                app:iconGravity="textStart" />
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/icon_button_padding" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tvRegister"
+        style="@style/TextAppearance.VaxMate.Body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="@dimen/space_lg"
         android:text="@string/no_account_register"
-        android:textColor="?attr/colorOnSurface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardLogin" />
+        app:layout_constraintTop_toBottomOf="@id/cardLogin"
+        android:layout_marginTop="@dimen/space_xl" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
