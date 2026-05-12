@@ -28,7 +28,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/logo_vaxmate"
-                app:shapeAppearanceOverlay="@style/CircleImage" />
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.VaxMate.Circle" />
 
             <TextView
                 android:layout_width="wrap_content"

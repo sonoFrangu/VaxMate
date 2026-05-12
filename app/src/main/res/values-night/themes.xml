@@ -7,7 +7,7 @@
         <item name="android:colorBackground">@color/on_surface</item>
     </style>
 
-    <style name="CircleImage">
+    <style name="ShapeAppearance.VaxMate.Circle">
         <item name="cornerSize">50%</item>
     </style>
 

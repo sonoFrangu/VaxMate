@@ -24,7 +24,7 @@
         app:strokeWidth="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/CircleImage"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.VaxMate.Circle"
         android:scaleType="centerCrop" />
 
     <ImageView
