@@ -19,4 +19,16 @@
     <dimen name="icon_sm">18dp</dimen>
     <dimen name="icon_md">24dp</dimen>
     <dimen name="icon_lg">48dp</dimen>
+
+    <dimen name="topbar_height">72dp</dimen>
+
+    <dimen name="avatar_size">40dp</dimen>
+
+    <dimen name="card_padding">16dp</dimen>
+
+    <dimen name="input_height">52dp</dimen>
+
+    <dimen name="bottom_nav_height">72dp</dimen>
+
+    <dimen name="button_small_height">44dp</dimen>
 </resources>

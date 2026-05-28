@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
         val btnLanguage = findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.btnLanguage)
         val btnLogin = findViewById<MaterialButton>(R.id.btnLogin)
         val btnRegister = findViewById<MaterialButton>(R.id.btnRegister)
+        val btnGuest = findViewById<MaterialButton>(R.id.btnGuest)
 
         tvFooter.text = Html.fromHtml(
             getString(R.string.footer_text),
@@ -45,6 +46,12 @@ class LoginActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnGuest.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("user_type", "guest")
             startActivity(intent)
         }
 

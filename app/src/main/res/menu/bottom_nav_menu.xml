@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_logo"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/nav_inventory"
+        android:icon="@drawable/ic_vaccino"
+        android:title="Inventario"/>
+
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@drawable/icona_ospite"
+        android:title="Account"/>
+
+</menu>
