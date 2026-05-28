@@ -4,57 +4,60 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import com.google.android.material.button.MaterialButton
+import it.uninsubria.vaxmate.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        val tvFooter = findViewById<TextView>(R.id.tvFooter)
-        val btnLanguage = findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.btnLanguage)
-        val btnLogin = findViewById<MaterialButton>(R.id.btnLogin)
-        val btnRegister = findViewById<MaterialButton>(R.id.btnRegister)
-        val btnGuest = findViewById<MaterialButton>(R.id.btnGuest)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tvFooter.text = Html.fromHtml(
+        binding.tvFooter.text = Html.fromHtml(
             getString(R.string.footer_text),
             Html.FROM_HTML_MODE_LEGACY
         )
 
+        binding.tvFooter.movementMethod = LinkMovementMethod.getInstance()
+
         val currentLang = AppCompatDelegate.getApplicationLocales().toLanguageTags()
+
         if (currentLang.contains("en")) {
-            btnLanguage.setImageResource(R.drawable.ic_flag_it)
+            binding.btnLanguage.setImageResource(R.drawable.ic_flag_it)
         } else {
-            btnLanguage.setImageResource(R.drawable.ic_flag_en)
+            binding.btnLanguage.setImageResource(R.drawable.ic_flag_en)
         }
 
-        btnLanguage.setOnClickListener {
+        binding.btnLanguage.setOnClickListener {
             val newLang = if (currentLang.contains("en")) "it" else "en"
+
             val appLocales = LocaleListCompat.forLanguageTags(newLang)
+
             AppCompatDelegate.setApplicationLocales(appLocales)
         }
 
-        btnLogin.setOnClickListener {
-            val intent = Intent(this, DoctorLoginActivity::class.java)
-            startActivity(intent)
+        binding.btnLogin.setOnClickListener {
+            startActivity(
+                Intent(this, DoctorLoginActivity::class.java)
+            )
         }
 
-        btnRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+        binding.btnRegister.setOnClickListener {
+            startActivity(
+                Intent(this, RegisterActivity::class.java)
+            )
         }
 
-        btnGuest.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("user_type", "guest")
-            startActivity(intent)
+        binding.btnGuest.setOnClickListener {
+            startActivity(
+                Intent(this, MainActivity::class.java)
+            )
         }
-
-        tvFooter.movementMethod = LinkMovementMethod.getInstance()
     }
 }

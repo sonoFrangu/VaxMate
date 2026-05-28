@@ -1,28 +1,33 @@
 package it.uninsubria.vaxmate
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
+import it.uninsubria.vaxmate.databinding.ActivityDoctorLoginBinding
 
 class DoctorLoginActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityDoctorLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_doctor_login)
 
-        val etEmail = findViewById<TextInputEditText>(R.id.etEmail)
-        val etPassword = findViewById<TextInputEditText>(R.id.etPassword)
-        val btnDoLogin = findViewById<MaterialButton>(R.id.btnDoLogin)
+        binding = ActivityDoctorLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        btnDoLogin.setOnClickListener {
-            val emailInserita = etEmail.text.toString()
-            val passwordInserita = etPassword.text.toString()
+        binding.btnDoLogin.setOnClickListener {
 
-            Log.d("VaxMate_Debug", "--- TENTATIVO DI LOGIN ---")
-            Log.d("VaxMate_Debug", "Email: $emailInserita")
-            Log.d("VaxMate_Debug", "Password: $passwordInserita")
+            val emailInserita = binding.etEmail.text.toString()
+            val passwordInserita = binding.etPassword.text.toString()
+
+            Log.d("VaxMate_Debug", "--- TENTATIVO LOGIN ---")
+            Log.d("VaxMate_Debug", emailInserita)
+
+            // todo TEMPORANEO
+            startActivity(
+                Intent(this, MainActivity::class.java)
+            )
         }
     }
 }
