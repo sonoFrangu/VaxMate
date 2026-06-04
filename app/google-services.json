@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "739393298334",
+    "project_id": "vaxmate-9ff7e",
+    "storage_bucket": "vaxmate-9ff7e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739393298334:android:50bacf48a6d6b9f037808f",
+        "android_client_info": {
+          "package_name": "it.uninsubria.vaxmate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKE0l8bwo7jqwGnB00DIjAXxzS46o5mS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
