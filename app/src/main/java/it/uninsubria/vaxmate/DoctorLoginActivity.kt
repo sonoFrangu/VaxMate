@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import it.uninsubria.vaxmate.databinding.ActivityDoctorLoginBinding
 
 class DoctorLoginActivity : AppCompatActivity() {
@@ -18,13 +19,28 @@ class DoctorLoginActivity : AppCompatActivity() {
 
         val dbManager = DatabaseManager()
 
+        pulisciErroriDuranteScrittura()
+
         binding.btnDoLogin.setOnClickListener {
 
             val emailInserita = binding.etEmail.text.toString().trim()
             val passwordInserita = binding.etPassword.text.toString().trim()
 
-            if (emailInserita.isEmpty() || passwordInserita.isEmpty()) {
-                android.widget.Toast.makeText(this, "Inserisci email e password", android.widget.Toast.LENGTH_SHORT).show()
+            azzeraTuttiGliErrori()
+
+            var tuttoValido = true
+
+            if (emailInserita.isEmpty()) {
+                binding.tilEmail.error = "Campo obbligatorio"
+                tuttoValido = false
+            }
+
+            if (passwordInserita.isEmpty()) {
+                binding.tilPassword.error = "Campo obbligatorio"
+                tuttoValido = false
+            }
+
+            if (!tuttoValido) {
                 return@setOnClickListener
             }
 
@@ -35,9 +51,20 @@ class DoctorLoginActivity : AppCompatActivity() {
                     finish()
                 } else {
                     Log.e("VaxMate_Debug", "Errore di login")
-                    android.widget.Toast.makeText(this, "Email o password errati", android.widget.Toast.LENGTH_SHORT).show()
+                    binding.tilEmail.error = "Email o password errati"
+                    binding.tilPassword.error = "Email o password errati"
                 }
             }
         }
+    }
+
+    private fun pulisciErroriDuranteScrittura() {
+        binding.etEmail.doOnTextChanged { _, _, _, _ -> binding.tilEmail.error = null }
+        binding.etPassword.doOnTextChanged { _, _, _, _ -> binding.tilPassword.error = null }
+    }
+
+    private fun azzeraTuttiGliErrori() {
+        binding.tilEmail.error = null
+        binding.tilPassword.error = null
     }
 }

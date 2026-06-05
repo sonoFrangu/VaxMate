@@ -7,6 +7,7 @@ import android.text.method.LinkMovementMethod
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import com.google.firebase.auth.FirebaseAuth
 import it.uninsubria.vaxmate.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -15,6 +16,14 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//      AUTO LOGIN
+//        val utenteLoggato = FirebaseAuth.getInstance().currentUser
+//
+//        if (utenteLoggato != null) {
+//            startActivity(Intent(this, MainActivity::class.java))
+//            finish()
+//            return
+//        }
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
