@@ -44,6 +44,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFirstName"
                     style="@style/Widget.VaxMate.TextInputLayout"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -58,6 +59,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilLastName"
                     style="@style/Widget.VaxMate.TextInputLayout"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -73,6 +75,7 @@
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRegisterEmail"
                 style="@style/Widget.VaxMate.TextInputLayout"
                 android:hint="@string/label_email"
                 app:startIconDrawable="@drawable/ic_email">
@@ -84,6 +87,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilHospital"
                 style="@style/Widget.VaxMate.TextInputLayout.Dropdown"
                 android:hint="@string/label_hospital"
                 app:startIconDrawable="@drawable/ic_hospital">
@@ -95,6 +99,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRegisterPassword"
                 style="@style/Widget.VaxMate.TextInputLayout"
                 android:hint="@string/label_password"
                 app:passwordToggleEnabled="true"
@@ -107,6 +112,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilConfirmPassword"
                 style="@style/Widget.VaxMate.TextInputLayout"
                 android:hint="@string/label_confirm_password"
                 app:passwordToggleEnabled="true"
