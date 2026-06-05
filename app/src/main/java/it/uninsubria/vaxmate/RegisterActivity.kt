@@ -58,6 +58,11 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (pass1.length < 6) {
+                Toast.makeText(this, "La password deve contenere almeno 6 caratteri", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (pass1 != pass2) {
                 Log.e("VaxMate_Debug", "Password diverse")
                 Toast.makeText(this, "Le password non coincidono", Toast.LENGTH_SHORT).show()
