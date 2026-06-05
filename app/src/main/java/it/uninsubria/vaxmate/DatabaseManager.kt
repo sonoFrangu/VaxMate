@@ -19,6 +19,12 @@ class DatabaseManager {
         }
     }
 
+    fun loginMedico(email: String, pass: String, callback: (Boolean) -> Unit) {
+        auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
+            callback(task.isSuccessful)
+        }
+    }
+
     private fun salvaDatiFirestore(uid: String, nome: String, cognome: String, email: String, ospedale: String, callback: (Boolean) -> Unit) {
         val datiMedico = hashMapOf(
             "nome" to nome,

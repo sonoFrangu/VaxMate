@@ -16,18 +16,28 @@ class DoctorLoginActivity : AppCompatActivity() {
         binding = ActivityDoctorLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val dbManager = DatabaseManager()
+
         binding.btnDoLogin.setOnClickListener {
 
-            val emailInserita = binding.etEmail.text.toString()
-            val passwordInserita = binding.etPassword.text.toString()
+            val emailInserita = binding.etEmail.text.toString().trim()
+            val passwordInserita = binding.etPassword.text.toString().trim()
 
-            Log.d("VaxMate_Debug", "--- TENTATIVO LOGIN ---")
-            Log.d("VaxMate_Debug", emailInserita)
+            if (emailInserita.isEmpty() || passwordInserita.isEmpty()) {
+                android.widget.Toast.makeText(this, "Inserisci email e password", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            // todo TEMPORANEO
-            startActivity(
-                Intent(this, MainActivity::class.java)
-            )
+            dbManager.loginMedico(emailInserita, passwordInserita) { successo ->
+                if (successo) {
+                    Log.d("VaxMate_Debug", "Login effettuato con successo!")
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                } else {
+                    Log.e("VaxMate_Debug", "Errore di login")
+                    android.widget.Toast.makeText(this, "Email o password errati", android.widget.Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

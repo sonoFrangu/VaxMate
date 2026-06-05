@@ -40,7 +40,6 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnDoRegister.setOnClickListener {
-
             val nome = binding.etFirstName.text.toString()
             val cognome = binding.etLastName.text.toString()
             val email = binding.etRegisterEmail.text.toString()
