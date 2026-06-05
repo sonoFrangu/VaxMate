@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -89,7 +90,14 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            binding.btnDoRegister.isEnabled = false
+            window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+
             dbManager.creaAccountMedico(email, pass1, nome, cognome, ospedale) { successo ->
+
+                binding.btnDoRegister.isEnabled = true
+                window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+
                 if (successo) {
                     Log.d("VaxMate_Debug", "Registrazione completata su Firebase")
                     mostraPopupSuccesso()
@@ -113,6 +121,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.etRegisterPassword.doOnTextChanged { _, _, _, _ -> binding.tilRegisterPassword.error = null }
         binding.etConfirmPassword.doOnTextChanged { _, _, _, _ -> binding.tilConfirmPassword.error = null }
     }
+
     private fun azzeraTuttiGliErrori() {
         binding.tilFirstName.error = null
         binding.tilLastName.error = null

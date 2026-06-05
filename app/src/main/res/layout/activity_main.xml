@@ -48,7 +48,9 @@
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/mainContent"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,18 +58,29 @@
             android:orientation="vertical"
             android:padding="@dimen/space_lg">
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/topBar"
+                app:layout_constraintBottom_toTopOf="@id/bottomNav"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
             <TextView
+                android:id="@+id/tvGreeting"
                 style="@style/TextAppearance.VaxMate.SectionTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Buongiorno, Dr. Rossi" />
+                tools:text="Buongiorno, Dr. Rossi" />
 
             <TextView
+                android:id="@+id/tvGreetingSubtitle"
                 style="@style/TextAppearance.VaxMate.SectionSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_xs"
-                android:text="Pronto per registrare le somministrazioni di oggi." />
+                tools:text="Pronto per registrare le somministrazioni di oggi." />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
