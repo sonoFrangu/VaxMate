@@ -25,4 +25,12 @@
     <string name="label_full_name">Full Name</string>
     <string name="label_hospital">Affiliated Hospital</string>
     <string name="already_have_account">Already have an account? Login</string>
+
+    <string name="first_subtitle">Biological therapy</string>
+    <string name="second_subtitle">Age</string>
+    <string name="third_subtitle">Clinical conditions</string>
+    <string name="first_label">Ex: anti-TNF</string>
+    <string name="second_label">65</string>
+    <string name="third_label">Other pathologies: none</string>
+    <string name="button">Process</string>
 </resources>

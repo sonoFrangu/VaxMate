@@ -23,7 +23,7 @@
         <ImageView
             android:layout_width="@dimen/avatar_size"
             android:layout_height="@dimen/avatar_size"
-            android:src="@drawable/icona_ospite"
+            android:src="@drawable/ic_logo"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -35,8 +35,8 @@
             android:text="@string/app_name" />
 
         <ImageView
-            android:layout_width="@dimen/icon_md"
-            android:layout_height="@dimen/icon_md"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
             android:src="@drawable/ic_badge" />
 
     </LinearLayout>
@@ -98,7 +98,7 @@
                         style="@style/TextAppearance.VaxMate.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ID Paziente"
+                        android:text="@string/first_subtitle"
                         android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -108,7 +108,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             style="@style/Widget.VaxMate.TextInputEditText"
-                            android:hint="Es. CF o Codice ASL"/>
+                            android:hint="@string/first_label"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_md"
-                        android:text="Lotto Vaccino"
+                        android:text="@string/second_subtitle"
                         android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -127,7 +127,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             style="@style/Widget.VaxMate.TextInputEditText"
-                            android:hint="Scannerizza o inserisci lotto"/>
+                            android:hint="@string/second_label"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_md"
-                        android:text="Sito Iniezione"
+                        android:text="@string/third_subtitle"
                         android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -146,7 +146,7 @@
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             style="@style/Widget.VaxMate.TextInputEditText"
-                            android:hint="Seleziona sito"/>
+                            android:hint="@string/third_label"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,7 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/button_height"
                         android:layout_marginTop="@dimen/space_lg"
-                        android:text="Elabora"
+                        android:text="@string/button"
                         app:icon="@drawable/ic_check"
                         app:iconGravity="textStart"
                         app:iconPadding="@dimen/icon_button_padding"/>

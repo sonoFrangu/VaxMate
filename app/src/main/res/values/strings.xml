@@ -25,4 +25,12 @@
     <string name="label_full_name">Nome e Cognome</string>
     <string name="label_hospital">Ospedale di competenza</string>
     <string name="already_have_account">Hai già un account? Accedi</string>
+
+    <string name="first_subtitle">Terapia biologica</string>
+    <string name="second_subtitle">Età</string>
+    <string name="third_subtitle">Condizioni cliniche</string>
+    <string name="first_label">Es: anti-TNF</string>
+    <string name="second_label">65</string>
+    <string name="third_label">Altre patologie: nessuna</string>
+    <string name="button">Elabora</string>
 </resources>
