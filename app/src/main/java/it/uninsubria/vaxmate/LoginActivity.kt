@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//      AUTO LOGIN
+//      !TODO AUTO LOGIN
 //        val utenteLoggato = FirebaseAuth.getInstance().currentUser
 //
 //        if (utenteLoggato != null) {
