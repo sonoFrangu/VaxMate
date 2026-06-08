@@ -23,6 +23,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.imgLogo.setOnClickListener { view ->
+            val popupMenu = android.widget.PopupMenu(this, view)
+            popupMenu.menuInflater.inflate(
+                R.menu.logo_menu,
+                popupMenu.menu
+            )
+
+            popupMenu.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.menu_logout -> {
+                        auth.signOut()
+                        recreate()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.show()
+        }
+
         val utenteCorrente = auth.currentUser
 
         if (utenteCorrente == null) {

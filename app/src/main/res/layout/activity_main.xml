@@ -21,10 +21,13 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/imgLogo"
             android:layout_width="@dimen/avatar_size"
             android:layout_height="@dimen/avatar_size"
             android:src="@drawable/ic_logo"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:clickable="true"
+            android:focusable="true" />
 
         <TextView
             style="@style/Widget.VaxMate.TopBarTitle"
@@ -50,7 +53,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/mainContent"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -104,7 +107,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.VaxMate.TextInputLayout"
                         android:layout_marginTop="@dimen/space_xs"
-                        app:startIconDrawable="@drawable/ic_badge">
+                        app:startIconDrawable="@drawable/ic_vaccino">
 
                         <com.google.android.material.textfield.TextInputEditText
                             style="@style/Widget.VaxMate.TextInputEditText"
@@ -123,7 +126,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.VaxMate.TextInputLayout"
                         android:layout_marginTop="@dimen/space_xs"
-                        app:startIconDrawable="@drawable/ic_vaccino">
+                        app:startIconDrawable="@drawable/ic_person">
 
                         <com.google.android.material.textfield.TextInputEditText
                             style="@style/Widget.VaxMate.TextInputEditText"
@@ -140,11 +143,11 @@
                         android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.VaxMate.TextInputLayout.Dropdown"
+                        style="@style/Widget.VaxMate.TextInputLayout"
                         android:layout_marginTop="@dimen/space_xs"
-                        app:startIconDrawable="@drawable/ic_person">
+                        app:startIconDrawable="@drawable/ic_badge">
 
-                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        <com.google.android.material.textfield.TextInputEditText
                             style="@style/Widget.VaxMate.TextInputEditText"
                             android:hint="@string/third_label"/>
 
