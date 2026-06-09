@@ -53,6 +53,20 @@ class DatabaseManager {
             }
     }
 
+    fun getDatiMedico(uid: String, onSuccess: (Map<String, Any>) -> Unit, onFailure: (Exception) -> Unit) {
+        db.collection("Medici").document(uid).get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    onSuccess(document.data ?: emptyMap())
+                } else {
+                    onFailure(Exception("Documento non trovato"))
+                }
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
+
     /*fun popolaDatabaseVaccini(callback: (Boolean) -> Unit) {
         val db = FirebaseFirestore.getInstance()
         val vacciniRef = db.collection("Vaccini")

@@ -49,8 +49,8 @@ class MainActivity : BaseActivity() {
                     cambiaFragment(InventoryFragment())
                     true
                 }
-                android.R.id.home -> { // O nav_account in base al tuo ID
-                    cambiaFragment(Fragment())
+                R.id.nav_account -> {
+                    cambiaFragment(AccountFragment())
                     true
                 }
                 else -> false
