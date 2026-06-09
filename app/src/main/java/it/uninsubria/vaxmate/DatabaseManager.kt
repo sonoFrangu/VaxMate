@@ -38,6 +38,21 @@ class DatabaseManager {
         }
     }
 
+    fun getVaccini(onSuccess: (List<Vaccino>) -> Unit, onFailure: (Exception) -> Unit) {
+        db.collection("Vaccini").get()
+            .addOnSuccessListener { result ->
+                val listaTemp = mutableListOf<Vaccino>()
+                for (document in result) {
+                    val vaccino = document.toObject(Vaccino::class.java)
+                    listaTemp.add(vaccino)
+                }
+                onSuccess(listaTemp)
+            }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
+    }
+
     /*fun popolaDatabaseVaccini(callback: (Boolean) -> Unit) {
         val db = FirebaseFirestore.getInstance()
         val vacciniRef = db.collection("Vaccini")
