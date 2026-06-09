@@ -33,6 +33,8 @@
     <string name="second_label">65</string>
     <string name="third_label">Other pathologies: none</string>
     <string name="button">Process</string>
+    <string name="info_label">System Status</string>
+    <string name="info_text">The system is ready to receive new data.</string>
 
     <string name="error_invalid_therapy">Unrecognized therapy</string>
     <string name="error_invalid_condition">Unrecognized condition</string>

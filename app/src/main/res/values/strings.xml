@@ -33,6 +33,8 @@
     <string name="second_label">65</string>
     <string name="third_label">Altre patologie: nessuna</string>
     <string name="button">Elabora</string>
+    <string name="info_label">Stato Sistema</string>
+    <string name="info_text">Il sistema è pronto per ricevere nuovi dati.</string>
 
     <string name="error_invalid_therapy">Terapia non riconosciuta</string>
     <string name="error_invalid_condition">Patologia non riconosciuta</string>
