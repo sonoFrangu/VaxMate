@@ -18,14 +18,14 @@ class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//      !TODO AUTO LOGIN
-//        val utenteLoggato = FirebaseAuth.getInstance().currentUser
-//
-//        if (utenteLoggato != null) {
-//            startActivity(Intent(this, MainActivity::class.java))
-//            finish()
-//            return
-//        }
+
+        val utenteLoggato = FirebaseAuth.getInstance().currentUser
+
+        if (utenteLoggato != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)

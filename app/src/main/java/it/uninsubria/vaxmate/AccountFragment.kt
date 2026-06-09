@@ -75,7 +75,6 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
                     val email = dati["email"] as? String ?: ""
                     val ospedale = dati["ospedale"] as? String ?: ""
 
-                    // Riempiamo l'header e le tre card
                     tvHeaderNome.text = "Dr. $nome $cognome"
                     tvProfiloNomeCognome.text = "$nome $cognome"
                     tvProfiloEmail.text = email
@@ -89,9 +88,11 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
                 }
             )
 
-            // Gestione Logout
             btnLogout.setOnClickListener {
                 auth.signOut()
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
                 requireActivity().recreate()
             }
         }
