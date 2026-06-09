@@ -85,13 +85,13 @@ class MainActivity : BaseActivity() {
                 listaVacciniDalDB = listaTemp
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Errore di connessione al database", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.db_error), Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun eseguiCalcolo() {
         if (listaVacciniDalDB.isEmpty()) {
-            Toast.makeText(this, "Caricamento vaccini in corso, riprova...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.loading_vaccines), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -112,17 +112,17 @@ class MainActivity : BaseActivity() {
         val patologiaValidata = manager.normalizzaPatologia(patologiaScritta)
 
         if (etaStringa.isEmpty()) {
-            binding.etEta.error = "Inserisci l'età"
+            binding.etEta.error = getString(R.string.error_age)
             ciSonoErrori = true
         }
 
         if (terapiaValidata == null) {
-            binding.etTerapia.error = "Terapia non riconosciuta"
+            binding.etTerapia.error = getString(R.string.error_invalid_therapy)
             ciSonoErrori = true
         }
 
         if (patologiaValidata == null) {
-            binding.etCondizione.error = "Patologia non riconosciuta"
+            binding.etCondizione.error = getString(R.string.error_invalid_condition)
             ciSonoErrori = true
         }
 
@@ -142,13 +142,13 @@ class MainActivity : BaseActivity() {
     }
 
     private fun seVuoto(testo: String): String {
-        return if (testo.isBlank()) "Nessuno" else testo
+        return if (testo.isBlank()) getString(R.string.empty_result) else testo
     }
 
     private fun impostaSalutoOspite() {
-        val salutoBase = "Benvenuto, "
-        val ruolo = "Dottore"
-        val testoCompleto = salutoBase + ruolo
+        val salutoBase = getString(R.string.welcome_base)
+        val ruolo = getString(R.string.guest_role)
+        val testoCompleto = salutoBase + " " + ruolo
 
         val spannableString = SpannableString(testoCompleto)
         val colorBlu = ContextCompat.getColor(this, R.color.primary)
@@ -161,14 +161,14 @@ class MainActivity : BaseActivity() {
         )
 
         binding.tvGreeting.text = spannableString
-        binding.tvGreetingSubtitle.text = "Consulta le linee guida e calcola le raccomandazioni."
+        binding.tvGreetingSubtitle.text = getString(R.string.guest_subtitle)
         mostraContenuto()
     }
 
     private fun impostaSalutoMedico(cognome: String) {
-        val salutoBase = "Buongiorno, "
+        val salutoBase = getString(R.string.welcome_base)
         val nomeDottore = "Dr. $cognome"
-        val testoCompleto = salutoBase + nomeDottore
+        val testoCompleto = salutoBase + " " + nomeDottore
 
         val spannableString = SpannableString(testoCompleto)
         val colorBlu = ContextCompat.getColor(this, R.color.primary)
@@ -181,7 +181,7 @@ class MainActivity : BaseActivity() {
         )
 
         binding.tvGreeting.text = spannableString
-        binding.tvGreetingSubtitle.text = "Pronto per registrare le somministrazioni di oggi."
+        binding.tvGreetingSubtitle.text = getString(R.string.doctor_subtitle)
         mostraContenuto()
     }
 
