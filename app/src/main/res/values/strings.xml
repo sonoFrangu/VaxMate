@@ -24,7 +24,8 @@
     <string name="register_subtitle">Unisciti alla piattaforma clinica integrata</string>
     <string name="label_full_name">Nome e Cognome</string>
     <string name="label_hospital">Ospedale di competenza</string>
-    <string name="already_have_account">Hai già un account? Accedi</string>
+    <string name="already_have_account">Hai già un account?</string>
+    <string name="login_word">Accedi</string>
 
     <string name="first_subtitle">Terapia biologica</string>
     <string name="second_subtitle">Età</string>
@@ -38,6 +39,16 @@
 
     <string name="error_invalid_therapy">Terapia non riconosciuta</string>
     <string name="error_invalid_condition">Patologia non riconosciuta</string>
+
+    <string name="error_empty">Campo obbligatorio</string>
+    <string name="error_hospital">Seleziona un ospedale</string>
+    <string name="error_email">Email non valida</string>
+    <string name="error_len_psw">Minimo 6 caratteri</string>
+    <string name="error_psw">Le password non coincidono</string>
+    <string name="error_register">Errore di registrazione (Es. email già in uso)</string>
+    <string name="complete_register">Registrazione Completata</string>
+    <string name="complete_msg">Il tuo account medico è stato creato con successo.</string>
+    <string name="complete_btn">Vai all\'App</string>
 
     <string name="db_error">Errore di connessione al database</string>
     <string name="loading_vaccines">Caricamento vaccini in corso, riprova tra un istante...</string>

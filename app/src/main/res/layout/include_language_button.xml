@@ -11,6 +11,7 @@
     android:clickable="true"
     android:focusable="true"
     android:padding="2dp"
+    android:elevation="20dp"
     android:scaleType="centerCrop"
     android:src="@drawable/ic_flag_en"
 

@@ -2,12 +2,16 @@ package it.uninsubria.vaxmate
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.util.Patterns
 import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import it.uninsubria.vaxmate.databinding.ActivityRegisterBinding
@@ -24,6 +28,24 @@ class RegisterActivity : BaseActivity() {
         setContentView(binding.root)
 
         setupLanguageButton(binding.languageButton.btnLanguage)
+
+        val testoBase = getString(R.string.already_have_account)
+        val testoColorato = getString(R.string.login_word)
+
+        val testoCompleto = "$testoBase $testoColorato"
+
+        val spannableString = SpannableString(testoCompleto)
+
+        val colorTurchese = ContextCompat.getColor(this, R.color.primary)
+
+        spannableString.setSpan(
+            ForegroundColorSpan(colorTurchese),
+            testoBase.length + 1,
+            testoCompleto.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        binding.tvGoToLogin.text = spannableString
 
         val ospedali = arrayOf(
             "Ospedale di Circolo Varese",
@@ -58,33 +80,33 @@ class RegisterActivity : BaseActivity() {
             var tuttoValido = true
 
             if (nome.isEmpty()) {
-                binding.tilFirstName.error = "Campo obbligatorio"
+                binding.tilFirstName.error = getString(R.string.error_empty)
                 tuttoValido = false
             }
             if (cognome.isEmpty()) {
-                binding.tilLastName.error = "Campo obbligatorio"
+                binding.tilLastName.error = getString(R.string.error_empty)
                 tuttoValido = false
             }
             if (ospedale.isEmpty()) {
-                binding.tilHospital.error = "Seleziona un ospedale"
+                binding.tilHospital.error = getString(R.string.error_hospital)
                 tuttoValido = false
             }
 
             if (email.isEmpty()) {
-                binding.tilRegisterEmail.error = "Campo obbligatorio"
+                binding.tilRegisterEmail.error = getString(R.string.error_empty)
                 tuttoValido = false
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                binding.tilRegisterEmail.error = "Email non valida"
+                binding.tilRegisterEmail.error = getString(R.string.error_email)
                 tuttoValido = false
             }
 
             if (pass1.length < 6) {
-                binding.tilRegisterPassword.error = "Minimo 6 caratteri"
+                binding.tilRegisterPassword.error = getString(R.string.error_len_psw)
                 tuttoValido = false
             }
 
             if (pass2.isEmpty() || pass1 != pass2) {
-                binding.tilConfirmPassword.error = "Le password non coincidono"
+                binding.tilConfirmPassword.error = getString(R.string.error_psw)
                 tuttoValido = false
             }
 
@@ -105,12 +127,15 @@ class RegisterActivity : BaseActivity() {
                     mostraPopupSuccesso()
                 } else {
                     Log.e("VaxMate_Debug", "Errore durante la registrazione su Firebase")
-                    Toast.makeText(this, "Errore di registrazione (Es. email già in uso)", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.error_register), Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
         binding.tvGoToLogin.setOnClickListener {
+            startActivity(
+                Intent(this, DoctorLoginActivity::class.java)
+            )
             finish()
         }
     }
@@ -135,10 +160,10 @@ class RegisterActivity : BaseActivity() {
 
     private fun mostraPopupSuccesso() {
         MaterialAlertDialogBuilder(this)
-            .setTitle("Registrazione Completata")
-            .setMessage("Il tuo account medico è stato creato con successo.")
+            .setTitle(getString(R.string.complete_register))
+            .setMessage(getString(R.string.complete_msg))
             .setCancelable(false)
-            .setPositiveButton("Vai all'App") { dialog, _ ->
+            .setPositiveButton(getString(R.string.complete_btn)) { dialog, _ ->
                 dialog.dismiss()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()

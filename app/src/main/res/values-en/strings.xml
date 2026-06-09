@@ -24,7 +24,8 @@
     <string name="register_subtitle">Join the integrated clinical platform</string>
     <string name="label_full_name">Full Name</string>
     <string name="label_hospital">Affiliated Hospital</string>
-    <string name="already_have_account">Already have an account? Login</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="login_word">Login</string>
 
     <string name="first_subtitle">Biological therapy</string>
     <string name="second_subtitle">Age</string>
@@ -38,6 +39,16 @@
 
     <string name="error_invalid_therapy">Unrecognized therapy</string>
     <string name="error_invalid_condition">Unrecognized condition</string>
+
+    <string name="error_empty">Required field</string>
+    <string name="error_hospital">Select a hospital</string>
+    <string name="error_email">Invalid email address</string>
+    <string name="error_len_psw">Minimum 6 characters</string>
+    <string name="error_psw">Passwords do not match</string>
+    <string name="error_register">Registration error (e.g., email already in use)</string>
+    <string name="complete_register">Registration Complete</string>
+    <string name="complete_msg">Your doctor account has been created successfully.</string>
+    <string name="complete_btn">Go to the App</string>
 
     <string name="db_error">Database connection error</string>
     <string name="loading_vaccines">Loading vaccines, please try again in a moment...</string>
