@@ -31,4 +31,7 @@
     <dimen name="bottom_nav_height">95dp</dimen>
 
     <dimen name="button_small_height">44dp</dimen>
+
+    <dimen name="language_button_size">48dp</dimen>
+    <dimen name="language_button_mini">36dp</dimen>
 </resources>

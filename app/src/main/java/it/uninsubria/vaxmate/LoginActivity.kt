@@ -10,7 +10,7 @@ import androidx.core.os.LocaleListCompat
 import com.google.firebase.auth.FirebaseAuth
 import it.uninsubria.vaxmate.databinding.ActivityLoginBinding
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
@@ -35,21 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.tvFooter.movementMethod = LinkMovementMethod.getInstance()
 
-        val currentLang = AppCompatDelegate.getApplicationLocales().toLanguageTags()
-
-        if (currentLang.contains("en")) {
-            binding.btnLanguage.setImageResource(R.drawable.ic_flag_it)
-        } else {
-            binding.btnLanguage.setImageResource(R.drawable.ic_flag_en)
-        }
-
-        binding.btnLanguage.setOnClickListener {
-            val newLang = if (currentLang.contains("en")) "it" else "en"
-
-            val appLocales = LocaleListCompat.forLanguageTags(newLang)
-
-            AppCompatDelegate.setApplicationLocales(appLocales)
-        }
+        setupLanguageButton(binding.languageButton.btnLanguage)
 
         binding.btnLogin.setOnClickListener {
             startActivity(

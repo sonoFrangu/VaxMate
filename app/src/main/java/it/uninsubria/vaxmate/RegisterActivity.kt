@@ -12,7 +12,7 @@ import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import it.uninsubria.vaxmate.databinding.ActivityRegisterBinding
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private val dbManager = DatabaseManager()
@@ -22,6 +22,8 @@ class RegisterActivity : AppCompatActivity() {
 
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupLanguageButton(binding.languageButton.btnLanguage)
 
         val ospedali = arrayOf(
             "Ospedale di Circolo Varese",

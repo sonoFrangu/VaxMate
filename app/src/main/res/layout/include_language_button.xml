@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.imageview.ShapeableImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/btnLanguage"
+    android:layout_width="@dimen/language_button_size"
+    android:layout_height="@dimen/language_button_size"
+    android:background="?attr/selectableItemBackgroundBorderless"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="2dp"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ic_flag_en"
+
+    app:shapeAppearanceOverlay="@style/CircleImage"
+    app:strokeColor="@color/primary"
+    app:strokeWidth="2dp"/>

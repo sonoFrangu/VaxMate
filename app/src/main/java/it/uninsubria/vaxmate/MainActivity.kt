@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import it.uninsubria.vaxmate.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val auth = FirebaseAuth.getInstance()
@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         scaricaVacciniDaFirebase()
+
+        setupLanguageButton(binding.languageButton.btnLanguage)
 
         binding.imgLogo.setOnClickListener { view ->
             val popupMenu = android.widget.PopupMenu(this, view)

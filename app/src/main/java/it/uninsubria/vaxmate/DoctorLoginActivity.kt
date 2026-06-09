@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import it.uninsubria.vaxmate.databinding.ActivityDoctorLoginBinding
 
-class DoctorLoginActivity : AppCompatActivity() {
+class DoctorLoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityDoctorLoginBinding
 
@@ -18,6 +18,8 @@ class DoctorLoginActivity : AppCompatActivity() {
 
         binding = ActivityDoctorLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupLanguageButton(binding.languageButton.btnLanguage)
 
         val dbManager = DatabaseManager()
 

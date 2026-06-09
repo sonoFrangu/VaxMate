@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     android:background="?android:attr/colorBackground">
 
+    <include
+        android:id="@+id/languageButton"
+        layout="@layout/include_language_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="@dimen/language_button_size"
+        android:layout_height="@dimen/language_button_size"
+        android:layout_marginTop="@dimen/space_lg"
+        android:layout_marginEnd="@dimen/space_lg"/>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardLogin"
         style="@style/Widget.VaxMate.Card"
