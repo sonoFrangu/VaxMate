@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
 
     private var listaVacciniDalDB: List<Vaccino> = emptyList()
-    private val dbTerapie = arrayOf("Anti-TNF", "Corticosteroidi alto dosaggio", "Chemioterapia")
-    private val dbPatologie = arrayOf("Diabete", "Cardiopatia cronica", "Asma cronica", "Gravidanza", "Immunodeficienza severa")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,56 +83,53 @@ class MainActivity : AppCompatActivity() {
                 listaVacciniDalDB = listaTemp
             }
             .addOnFailureListener {
-                Toast.makeText(this, getString(R.string.db_error), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Errore di connessione al database", Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun eseguiCalcolo() {
         if (listaVacciniDalDB.isEmpty()) {
-            Toast.makeText(this, getString(R.string.loading_vaccines), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Caricamento vaccini in corso, riprova...", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Reset degli errori visivi
         binding.etEta.error = null
         binding.etTerapia.error = null
         binding.etCondizione.error = null
 
+        val terapiaScritta = binding.etTerapia.text.toString()
         val etaStringa = binding.etEta.text.toString().trim()
-        val terapiaScritta = binding.etTerapia.text.toString().trim()
-        val patologiaScritta = binding.etCondizione.text.toString().trim()
+        val patologiaScritta = binding.etCondizione.text.toString()
 
         var ciSonoErrori = false
 
+        // Validazione tramite VacciniManager
+        val manager = VacciniManager()
+        val terapiaValidata = manager.normalizzaTerapia(terapiaScritta)
+        val patologiaValidata = manager.normalizzaPatologia(patologiaScritta)
+
         if (etaStringa.isEmpty()) {
-            binding.etEta.error = getString(R.string.error_age)
+            binding.etEta.error = "Inserisci l'età"
             ciSonoErrori = true
         }
 
-        val terapieLocalizzate = resources.getStringArray(R.array.terapie_array)
-        val patologieLocalizzate = resources.getStringArray(R.array.patologie_array)
-
-        // Se il campo è vuoto forziamo l'indice 0 ("Nessuna"), altrimenti lo cerchiamo nell'array
-        val idxTerapia = if (terapiaScritta.isEmpty()) 0 else terapieLocalizzate.indexOfFirst { it.equals(terapiaScritta, ignoreCase = true) }
-        val idxPatologia = if (patologiaScritta.isEmpty()) 0 else patologieLocalizzate.indexOfFirst { it.equals(patologiaScritta, ignoreCase = true) }
-
-        if (idxTerapia == -1) {
-            binding.etTerapia.error = getString(R.string.error_invalid_therapy)
+        if (terapiaValidata == null) {
+            binding.etTerapia.error = "Terapia non riconosciuta"
             ciSonoErrori = true
         }
 
-        if (idxPatologia == -1) {
-            binding.etCondizione.error = getString(R.string.error_invalid_condition)
+        if (patologiaValidata == null) {
+            binding.etCondizione.error = "Patologia non riconosciuta"
             ciSonoErrori = true
         }
 
         if (ciSonoErrori) return
 
-        val terapiaDB = dbTerapie[idxTerapia]
-        val patologiaDB = dbPatologie[idxPatologia]
         val eta = etaStringa.toInt()
 
-        val manager = VacciniManager()
-        val risultato = manager.calcolaRaccomandazioni(eta, terapiaDB, patologiaDB, listaVacciniDalDB)
+        // Usiamo !! perché a questo punto siamo certi che non siano null
+        val risultato = manager.calcolaRaccomandazioni(eta, terapiaValidata!!, patologiaValidata!!, listaVacciniDalDB)
 
         binding.tvRaccomandati.text = seVuoto(risultato.raccomandati.joinToString("\n") { "- ${it.nome}" })
         binding.tvPossibili.text = seVuoto(risultato.possibili.joinToString("\n") { "- ${it.nome}" })
@@ -145,12 +140,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun seVuoto(testo: String): String {
-        return testo.ifBlank { getString(R.string.empty_result) }
+        return if (testo.isBlank()) "Nessuno" else testo
     }
 
     private fun impostaSalutoOspite() {
-        val salutoBase = getString(R.string.welcome_base)
-        val ruolo = getString(R.string.guest_role)
+        val salutoBase = "Benvenuto, "
+        val ruolo = "Dottore"
         val testoCompleto = salutoBase + ruolo
 
         val spannableString = SpannableString(testoCompleto)
@@ -164,12 +159,12 @@ class MainActivity : AppCompatActivity() {
         )
 
         binding.tvGreeting.text = spannableString
-        binding.tvGreetingSubtitle.text = getString(R.string.guest_subtitle)
+        binding.tvGreetingSubtitle.text = "Consulta le linee guida e calcola le raccomandazioni."
         mostraContenuto()
     }
 
     private fun impostaSalutoMedico(cognome: String) {
-        val salutoBase = getString(R.string.greeting_base)
+        val salutoBase = "Buongiorno, "
         val nomeDottore = "Dr. $cognome"
         val testoCompleto = salutoBase + nomeDottore
 
@@ -184,7 +179,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         binding.tvGreeting.text = spannableString
-        binding.tvGreetingSubtitle.text = getString(R.string.doctor_subtitle)
+        binding.tvGreetingSubtitle.text = "Pronto per registrare le somministrazioni di oggi."
         mostraContenuto()
     }
 
