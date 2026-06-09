@@ -1,5 +1,8 @@
 package it.uninsubria.vaxmate
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
@@ -23,5 +26,12 @@ open class BaseActivity : AppCompatActivity() {
 
             AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(newLang))
         }
+    }
+
+    protected fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 }
