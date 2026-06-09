@@ -32,7 +32,7 @@
     <string name="second_subtitle">Età</string>
     <string name="third_subtitle">Condizioni cliniche</string>
     <string name="first_label">Es: anti-TNF</string>
-    <string name="second_label">65</string>
+    <string name="second_label">Es: 65</string>
     <string name="third_label">Altre patologie: nessuna</string>
     <string name="button">Elabora</string>
     <string name="info_label">Stato Sistema</string>

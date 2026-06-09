@@ -32,7 +32,7 @@
     <string name="second_subtitle">Age</string>
     <string name="third_subtitle">Clinical conditions</string>
     <string name="first_label">Ex: anti-TNF</string>
-    <string name="second_label">65</string>
+    <string name="second_label">Ex: 65</string>
     <string name="third_label">Other pathologies: none</string>
     <string name="button">Process</string>
     <string name="info_label">System Status</string>
