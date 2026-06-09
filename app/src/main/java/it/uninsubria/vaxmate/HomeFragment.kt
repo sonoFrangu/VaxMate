@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
 
         scaricaVacciniDaFirebase()
 
-        // IL TUO CONTROLLO UTENTE ORIGINALE TRASLOCATO QUI
         val utenteCorrente = auth.currentUser
 
         if (utenteCorrente == null) {
