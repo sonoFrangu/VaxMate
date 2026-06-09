@@ -33,4 +33,35 @@
     <string name="second_label">65</string>
     <string name="third_label">Other pathologies: none</string>
     <string name="button">Process</string>
+
+    <string name="error_invalid_therapy">Unrecognized therapy</string>
+    <string name="error_invalid_condition">Unrecognized condition</string>
+
+    <string name="db_error">Database connection error</string>
+    <string name="loading_vaccines">Loading vaccines, please try again in a moment...</string>
+    <string name="error_age">Enter age</string>
+    <string name="empty_result">None</string>
+
+    <string name="welcome_base">Welcome, </string>
+    <string name="guest_role">Doctor</string>
+    <string name="greeting_base">Good morning, </string>
+
+    <string name="guest_subtitle">Consult the guidelines and calculate recommendations.</string>
+    <string name="doctor_subtitle">Ready to record today\'s administrations.</string>
+
+    <string-array name="terapie_array">
+        <item>None</item>
+        <item>Anti-TNF</item>
+        <item>High-dose corticosteroids</item>
+        <item>Chemotherapy</item>
+    </string-array>
+
+    <string-array name="patologie_array">
+        <item>None</item>
+        <item>Diabetes</item>
+        <item>Chronic heart disease</item>
+        <item>Chronic asthma</item>
+        <item>Pregnancy</item>
+        <item>Severe immunodeficiency</item>
+    </string-array>
 </resources>

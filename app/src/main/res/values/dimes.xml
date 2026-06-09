@@ -28,7 +28,7 @@
 
     <dimen name="input_height">52dp</dimen>
 
-    <dimen name="bottom_nav_height">72dp</dimen>
+    <dimen name="bottom_nav_height">95dp</dimen>
 
     <dimen name="button_small_height">44dp</dimen>
 </resources>

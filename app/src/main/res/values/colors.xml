@@ -19,4 +19,13 @@
     <color name="outline">#BDC9CA</color>
 
     <color name="error">#ba1a1a</color>
+
+    <color name="bg_raccomandati">#E8F5E9</color>
+    <color name="text_raccomandati">#2E7D32</color>
+
+    <color name="bg_possibili">#FFF9C4</color>
+    <color name="text_possibili">#F57F17</color>
+
+    <color name="bg_controindicati">#FFEBEE</color>
+    <color name="text_controindicati">#C62828</color>
 </resources>

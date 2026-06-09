@@ -33,4 +33,35 @@
     <string name="second_label">65</string>
     <string name="third_label">Altre patologie: nessuna</string>
     <string name="button">Elabora</string>
+
+    <string name="error_invalid_therapy">Terapia non riconosciuta</string>
+    <string name="error_invalid_condition">Patologia non riconosciuta</string>
+
+    <string name="db_error">Errore di connessione al database</string>
+    <string name="loading_vaccines">Caricamento vaccini in corso, riprova tra un istante...</string>
+    <string name="error_age">Inserisci l\'età</string>
+    <string name="empty_result">Nessuno</string>
+
+    <string name="welcome_base">Benvenuto, </string>
+    <string name="guest_role">Dottore</string>
+    <string name="greeting_base">Buongiorno, </string>
+
+    <string name="guest_subtitle">Consulta le linee guida e calcola le raccomandazioni.</string>
+    <string name="doctor_subtitle">Pronto per registrare le somministrazioni di oggi.</string>
+
+    <string-array name="terapie_array">
+        <item>Nessuna</item>
+        <item>Anti-TNF</item>
+        <item>Corticosteroidi alto dosaggio</item>
+        <item>Chemioterapia</item>
+    </string-array>
+
+    <string-array name="patologie_array">
+        <item>Nessuna</item>
+        <item>Diabete</item>
+        <item>Cardiopatia cronica</item>
+        <item>Asma cronica</item>
+        <item>Gravidanza</item>
+        <item>Immunodeficienza severa</item>
+    </string-array>
 </resources>

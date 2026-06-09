@@ -45,15 +45,15 @@
     </LinearLayout>
 
     <ScrollView
+        android:id="@+id/mainContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/mainContent"
-        android:visibility="visible">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,10 +65,8 @@
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/topBar"
-                app:layout_constraintBottom_toTopOf="@id/bottomNav"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/space_md" />
 
             <TextView
                 android:id="@+id/tvGreeting"
@@ -110,6 +108,7 @@
                         app:startIconDrawable="@drawable/ic_vaccino">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTerapia"
                             style="@style/Widget.VaxMate.TextInputEditText"
                             android:hint="@string/first_label"/>
 
@@ -129,7 +128,9 @@
                         app:startIconDrawable="@drawable/ic_person">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEta"
                             style="@style/Widget.VaxMate.TextInputEditText"
+                            android:inputType="number"
                             android:hint="@string/second_label"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -148,6 +149,7 @@
                         app:startIconDrawable="@drawable/ic_badge">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCondizione"
                             style="@style/Widget.VaxMate.TextInputEditText"
                             android:hint="@string/third_label"/>
 
@@ -206,12 +208,150 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_xs"
                             android:text="Il sistema è pronto per ricevere nuovi dati." />
-                        
                     </LinearLayout>
-
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:id="@+id/layoutRisultati"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/space_lg">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.VaxMate.InfoCard"
+                    app:cardBackgroundColor="@color/bg_raccomandati"
+                    android:layout_marginBottom="@dimen/space_md">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:src="@drawable/ic_check"
+                            app:tint="@color/text_raccomandati" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_md">
+
+                            <TextView
+                                style="@style/TextAppearance.VaxMate.Body"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vaccini Raccomandati"
+                                android:textColor="@color/text_raccomandati"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvRaccomandati"
+                                style="@style/TextAppearance.VaxMate.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_xs" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.VaxMate.InfoCard"
+                    app:cardBackgroundColor="@color/bg_possibili"
+                    android:layout_marginBottom="@dimen/space_md">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/text_possibili" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_md">
+
+                            <TextView
+                                style="@style/TextAppearance.VaxMate.Body"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vaccini Possibili"
+                                android:textColor="@color/text_possibili"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvPossibili"
+                                style="@style/TextAppearance.VaxMate.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_xs" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.VaxMate.InfoCard"
+                    app:cardBackgroundColor="@color/bg_controindicati">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:src="@drawable/icona_ospite"
+                            app:tint="@color/text_controindicati" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_md">
+
+                            <TextView
+                                style="@style/TextAppearance.VaxMate.Body"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vaccini Controindicati"
+                                android:textColor="@color/text_controindicati"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/tvControindicati"
+                                style="@style/TextAppearance.VaxMate.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_xs" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
 
         </LinearLayout>
 
