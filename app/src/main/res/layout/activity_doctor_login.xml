@@ -84,6 +84,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPsw"
                     style="@style/TextAppearance.VaxMate.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

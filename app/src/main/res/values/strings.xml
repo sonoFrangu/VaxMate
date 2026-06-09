@@ -15,7 +15,8 @@
     <string name="hint_email">indirizzo@clinica.it</string>
     <string name="forgot_password">Password dimenticata?</string>
     <string name="btn_login_text">Login</string>
-    <string name="no_account_register">Non hai un account? Registrati</string>
+    <string name="no_account_register">Non hai un account?</string>
+    <string name="register_word">Registrati</string>
 
     <string name="label_first_name">Nome</string>
     <string name="label_last_name">Cognome</string>
@@ -49,6 +50,8 @@
     <string name="complete_register">Registrazione Completata</string>
     <string name="complete_msg">Il tuo account medico è stato creato con successo.</string>
     <string name="complete_btn">Vai all\'App</string>
+
+    <string name="error_email_psw">Email o password errati</string>
 
     <string name="db_error">Errore di connessione al database</string>
     <string name="loading_vaccines">Caricamento vaccini in corso, riprova tra un istante...</string>

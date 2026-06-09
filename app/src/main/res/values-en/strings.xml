@@ -15,7 +15,8 @@
     <string name="hint_email">address@clinic.com</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="btn_login_text">Login</string>
-    <string name="no_account_register">Don\'t have an account? Sign up</string>
+    <string name="no_account_register">Don\'t have an account?</string>
+    <string name="register_word">Sign up</string>
 
     <string name="label_first_name">First Name</string>
     <string name="label_last_name">Last Name</string>
@@ -49,6 +50,8 @@
     <string name="complete_register">Registration Complete</string>
     <string name="complete_msg">Your doctor account has been created successfully.</string>
     <string name="complete_btn">Go to the App</string>
+
+    <string name="error_email_psw">Incorrect email or password</string>
 
     <string name="db_error">Database connection error</string>
     <string name="loading_vaccines">Loading vaccines, please try again in a moment...</string>

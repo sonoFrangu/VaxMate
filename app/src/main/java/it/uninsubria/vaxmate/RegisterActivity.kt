@@ -31,20 +31,15 @@ class RegisterActivity : BaseActivity() {
 
         val testoBase = getString(R.string.already_have_account)
         val testoColorato = getString(R.string.login_word)
-
         val testoCompleto = "$testoBase $testoColorato"
-
         val spannableString = SpannableString(testoCompleto)
-
         val colorTurchese = ContextCompat.getColor(this, R.color.primary)
-
         spannableString.setSpan(
             ForegroundColorSpan(colorTurchese),
             testoBase.length + 1,
             testoCompleto.length,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
-
         binding.tvGoToLogin.text = spannableString
 
         val ospedali = arrayOf(
@@ -133,9 +128,7 @@ class RegisterActivity : BaseActivity() {
         }
 
         binding.tvGoToLogin.setOnClickListener {
-            startActivity(
-                Intent(this, DoctorLoginActivity::class.java)
-            )
+            startActivity(Intent(this, DoctorLoginActivity::class.java))
             finish()
         }
     }

@@ -2,11 +2,16 @@ package it.uninsubria.vaxmate
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import it.uninsubria.vaxmate.databinding.ActivityDoctorLoginBinding
 
 class DoctorLoginActivity : BaseActivity() {
@@ -20,6 +25,19 @@ class DoctorLoginActivity : BaseActivity() {
         setContentView(binding.root)
 
         setupLanguageButton(binding.languageButton.btnLanguage)
+
+        val testoBase = getString(R.string.no_account_register)
+        val testoColorato = getString(R.string.register_word)
+        val testoCompleto = "$testoBase $testoColorato"
+        val spannableString = SpannableString(testoCompleto)
+        val colorTurchese = ContextCompat.getColor(this, R.color.primary)
+        spannableString.setSpan(
+            ForegroundColorSpan(colorTurchese),
+            testoBase.length + 1,
+            testoCompleto.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        binding.tvRegister.text = spannableString
 
         val dbManager = DatabaseManager()
 
@@ -35,12 +53,12 @@ class DoctorLoginActivity : BaseActivity() {
             var tuttoValido = true
 
             if (emailInserita.isEmpty()) {
-                binding.tilEmail.error = "Campo obbligatorio"
+                binding.tilEmail.error = getString(R.string.error_empty)
                 tuttoValido = false
             }
 
             if (passwordInserita.isEmpty()) {
-                binding.tilPassword.error = "Campo obbligatorio"
+                binding.tilPassword.error = getString(R.string.error_empty)
                 tuttoValido = false
             }
 
@@ -62,10 +80,24 @@ class DoctorLoginActivity : BaseActivity() {
                     finish()
                 } else {
                     Log.e("VaxMate_Debug", "Errore di login")
-                    binding.tilEmail.error = "Email o password errati"
-                    binding.tilPassword.error = "Email o password errati"
+                    binding.tilEmail.error = getString(R.string.error_email_psw)
+                    binding.tilPassword.error = getString(R.string.error_email_psw)
                 }
             }
+        }
+
+        binding.tvRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
+        }
+
+        //TODO: se abbiamo voglia fare psw dimenticata
+        binding.tvPsw.setOnClickListener {
+            MaterialAlertDialogBuilder(this).setTitle("Sai cosa devi fare?")
+                .setMessage("ARRANGIATI! La prossima volta te la ricordi")
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss()
+                }
+                .show()
         }
     }
 
