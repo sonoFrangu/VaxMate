@@ -152,8 +152,8 @@ class InventoryFragment : Fragment(R.layout.fragment_inventory) {
     private fun convertiNomeOspedaleInId(nomeOspedale: String): String {
         return when (nomeOspedale) {
             "Ospedale di Circolo Varese" -> "ospedale_circolo"
-            "Ospedale Del Ponte" -> "ospedale_del_ponte"
-            "Ospedale di Como" -> "ospedale_di_como"
+            "Ospedale Del Ponte" -> "ospedale_delponte"
+            "Ospedale di Como" -> "ospedale_como"
             else -> nomeOspedale
         }
     }
