@@ -13,7 +13,6 @@
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
     <string name="hint_email">indirizzo@clinica.it</string>
-    <string name="forgot_password">Password dimenticata?</string>
     <string name="btn_login_text">Login</string>
     <string name="no_account_register">Non hai un account?</string>
     <string name="register_word">Registrati</string>

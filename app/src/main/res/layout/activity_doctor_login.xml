@@ -84,11 +84,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvPsw"
+                    android:id="@+id/tvGuest"
                     style="@style/TextAppearance.VaxMate.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/forgot_password"
+                    android:text="@string/btn_guest"
                     android:textColor="@color/primary"
                     android:textStyle="bold" />
             </LinearLayout>
