@@ -22,8 +22,8 @@ class VaccinoAdapter(private var listaVaccini: List<Vaccino>) :
 
     override fun onBindViewHolder(holder: VaccinoViewHolder, position: Int) {
         val vaccino = listaVaccini[position]
-        holder.tvNome.text = vaccino.nome
-        holder.tvTipo.text = "Tipo: ${vaccino.tipo.replace("_", " ").capitalize()}"
+        holder.tvNome.text = vaccino.getNomeLocalizzato()
+        holder.tvTipo.text = "Tipo: ${vaccino.getTipoLocalizzato()}"
     }
 
     override fun getItemCount() = listaVaccini.size
