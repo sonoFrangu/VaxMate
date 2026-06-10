@@ -115,12 +115,55 @@ class HomeFragment : Fragment() {
         val eta = etaStringa.toInt()
         val risultato = manager.calcolaRaccomandazioni(eta, terapiaValidata!!, patologiaValidata!!, listaVacciniDalDB)
 
-        binding.tvRaccomandati.text = seVuoto(risultato.raccomandati.joinToString("\n") { "- ${it.nome}" })
-        binding.tvPossibili.text = seVuoto(risultato.possibili.joinToString("\n") { "- ${it.nome}" })
-        binding.tvControindicati.text = seVuoto(risultato.controindicati.joinToString("\n") { "- ${it.nome}" })
+        // Svuota il contenitore dai calcoli precedenti
+        binding.layoutListaVaccini.removeAllViews()
+
+        // Popola il contenitore dinamicamente
+        aggiungiCardVaccini(risultato.raccomandati, "Raccomandato", R.color.bg_raccomandati, R.color.text_raccomandati, R.drawable.ic_check)
+        aggiungiCardVaccini(risultato.possibili, "Possibile", R.color.bg_possibili, R.color.text_possibili, R.drawable.ic_info)
+        // Se hai un'icona specifica per la 'X' rossa usala qui (es. R.drawable.ic_close), altrimenti mantengo icona_ospite che usavi prima
+        aggiungiCardVaccini(risultato.controindicati, "Controindicato", R.color.bg_controindicati, R.color.text_controindicati, R.drawable.icona_ospite)
 
         binding.infoCard.visibility = View.GONE
         binding.layoutRisultati.visibility = View.VISIBLE
+    }
+
+    private fun aggiungiCardVaccini(
+        vaccini: List<Vaccino>,
+        testoStato: String,
+        colorBgRes: Int,
+        colorTextRes: Int,
+        iconRes: Int
+    ) {
+        val inflater = LayoutInflater.from(requireContext())
+
+        for (vaccino in vaccini) {
+            val cardView = inflater.inflate(R.layout.item_vaccino_card, binding.layoutListaVaccini, false)
+
+            val container = cardView.findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardContainer)
+            val ivIcona = cardView.findViewById<android.widget.ImageView>(R.id.ivIconaStato)
+            val tvNome = cardView.findViewById<android.widget.TextView>(R.id.tvNomeVaccino)
+            val tvStato = cardView.findViewById<android.widget.TextView>(R.id.tvStatoVaccino)
+            val tvTipo = cardView.findViewById<android.widget.TextView>(R.id.tvTipoVaccino)
+
+            // Imposta i colori in base allo stato
+            container.setCardBackgroundColor(ContextCompat.getColor(requireContext(), colorBgRes))
+            ivIcona.setImageResource(iconRes)
+            ivIcona.setColorFilter(ContextCompat.getColor(requireContext(), colorTextRes))
+
+            // Popola i dati del vaccino
+            tvNome.text = vaccino.nome
+            tvStato.text = testoStato
+            tvStato.setTextColor(ContextCompat.getColor(requireContext(), colorTextRes))
+
+            // Se la tua classe Vaccino ha il campo tipo (es. "Vivo Attenuato", "Inattivo") usalo qui:
+            // Se non hai ancora inserito il campo "tipo" nel data model, aggiungilo su Firebase e nella data class.
+            val tipo = vaccino.tipo ?: "Non specificato"
+            tvTipo.text = "Tipo: $tipo"
+
+            // Aggiungi la card creata alla lista a schermo
+            binding.layoutListaVaccini.addView(cardView)
+        }
     }
 
     private fun seVuoto(testo: String): String {
