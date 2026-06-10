@@ -80,4 +80,21 @@
         <item>Gravidanza</item>
         <item>Immunodeficienza severa</item>
     </string-array>
+
+    <string name="menu_logout">Logout</string>
+
+    <string name="title_linee_guida">Linee Guida Cliniche</string>
+
+    <string name="intro_titolo">Contesto Dermatologico</string>
+    <string name="intro_testo">I pazienti in terapia biologica presentano una modulazione del sistema immunitario. Questa applicazione applica regole rigide basate su standard clinici per supportare il medico nella scelta dei vaccini.</string>
+
+    <string name="criteri_titolo">Criteri di Classificazione</string>
+    <string name="criteri_raccomandati"><b>Raccomandati:</b> Vaccini indicati per prevenire infezioni opportunistiche prima o durante la terapia (es. Antinfluenzale, Antipneumococcico).</string>
+    <string name="criteri_controindicati"><b>Controindicati:</b> Vaccini vivi attenuati. Sono generalmente da evitare durante la terapia biologica attiva per il rischio di replicazione virale.</string>
+
+    <string name="fonti_titolo">Fonti e Riferimenti Ufficiali</string>
+    <string name="fonti_testo">• Raccomandazioni EULAR per la vaccinazione nelle malattie immuno-mediate\n• CDC Adult Immunization Schedule\n• Linee guida del Ministero della Salute</string>
+
+    <string name="disclaimer_titolo">Disclaimer Medico</string>
+    <string name="disclaimer_testo">Attenzione: questo software è un sistema di supporto decisionale a scopo didattico/informativo e non sostituisce in alcun modo il giudizio clinico finale del medico specialista.</string>
 </resources>

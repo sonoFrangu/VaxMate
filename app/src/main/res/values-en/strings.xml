@@ -80,4 +80,21 @@
         <item>Pregnancy</item>
         <item>Severe immunodeficiency</item>
     </string-array>
+
+    <string name="menu_logout">Logout</string>
+
+    <string name="title_linee_guida">Clinical Guidelines</string>
+
+    <string name="intro_titolo">Dermatological Context</string>
+    <string name="intro_testo">Patients on biologic therapy undergo modulation of the immune system. This application applies strict rules based on clinical standards to assist physicians in vaccine selection.</string>
+
+    <string name="criteri_titolo">Classification Criteria</string>
+    <string name="criteri_raccomandati"><b>Recommended:</b> Vaccines indicated to prevent opportunistic infections before or during therapy (e.g., Influenza, Pneumococcal).</string>
+    <string name="criteri_controindicati"><b>Contraindicated:</b> Live attenuated vaccines. Generally avoided during active biologic therapy due to the risk of viral replication.</string>
+
+    <string name="fonti_titolo">Official Sources &amp; References</string>
+    <string name="fonti_testo">• EULAR recommendations for vaccination in immune-mediated diseases\n• CDC Adult Immunization Schedule\n• National health guidelines</string>
+
+    <string name="disclaimer_titolo">Medical Disclaimer</string>
+    <string name="disclaimer_testo">Warning: this software is a decision support system for educational/informational purposes and does not replace the clinical judgment of the specialist physician.</string>
 </resources>

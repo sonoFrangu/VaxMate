@@ -35,6 +35,10 @@ class MainActivity : BaseActivity() {
                         finish()
                         true
                     }
+                    R.id.menu_linee_guida ->{
+                        cambiaFragment(LineeGuidaFragment())
+                        true
+                    }
                     else -> false
                 }
             }
