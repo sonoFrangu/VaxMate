@@ -35,8 +35,8 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
 
         // Grafica Ospite
         val layoutGuest = view.findViewById<LinearLayout>(R.id.layoutGuestAccount)
-        val btnLogin = view.findViewById<MaterialButton>(R.id.btnAccountLogin)
-        val btnRegister = view.findViewById<MaterialButton>(R.id.btnAccountRegister)
+        val btnLogin = view.findViewById<MaterialButton>(R.id.btnGuestLogin)
+        val btnRegister = view.findViewById<MaterialButton>(R.id.btnGuestRegister)
 
         val utenteCorrente = auth.currentUser
 
