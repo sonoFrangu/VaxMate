@@ -20,6 +20,18 @@ L'obiettivo del nostro progetto è fornire indicazioni vaccinali per i pazienti 
 
 ---
 
+## Screenshot applicazione
+
+<p align="center">
+  <img src="screenshots/1_home.png" width="23%" />
+  <img src="screenshots/2_risultati.png" width="23%" />
+  <img src="screenshots/3_login.png" width="23%" />
+  <img src="screenshots/4_inventario.png" width="23%" />
+  <img src="screenshots/5_account.png" width="23%" />
+</p>
+
+---
+
 ## Stack Tecnologico e Architettura
 
 * **Linguaggio:** Kotlin
