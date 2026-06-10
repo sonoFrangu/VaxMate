@@ -98,5 +98,8 @@
     <string name="disclaimer_titolo">Medical Disclaimer</string>
     <string name="disclaimer_testo">Warning: this software is a decision support system for educational/informational purposes and does not replace the clinical judgment of the specialist physician.</string>
 
+    <string name="title_inventory">Vaccine Inventory</string>
     <string name="guest_not_available_message">Feature not available for guests.</string>
+    <string name="title_profile">Profile</string>
+
 </resources>
