@@ -28,7 +28,8 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_logo" />
+            android:src="@drawable/menu_hamburger"
+            app:tint="@android:color/black" />
 
         <TextView
             style="@style/Widget.VaxMate.TopBarTitle"

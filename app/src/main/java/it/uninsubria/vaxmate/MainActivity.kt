@@ -8,6 +8,9 @@ import it.uninsubria.vaxmate.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
 
+    //TODO da ancorare: activitydoctorlogin, activitymain, activityregister, fragmentaccount, freagmenthome, fragmentlineeguida
+    // anche se non so se vadano ancorati o meno
+
     private lateinit var binding: ActivityMainBinding
     private val auth = FirebaseAuth.getInstance()
 
