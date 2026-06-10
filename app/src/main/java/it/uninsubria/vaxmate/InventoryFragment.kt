@@ -5,9 +5,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -18,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Locale
 
 class InventoryFragment : Fragment(R.layout.fragment_inventory) {
 
@@ -87,17 +86,25 @@ class InventoryFragment : Fragment(R.layout.fragment_inventory) {
                             db.collection("Vaccini").get().addOnSuccessListener { vacciniResult ->
                                 val listaFinale = mutableListOf<ItemInventario>()
 
+                                val lingua = Locale.getDefault().language
+                                val campoNome = if (lingua == "en") "nome_en" else "nome_it"
+                                val campoTipo = if (lingua == "en") "tipo_en" else "tipo_it"
+
                                 for (vacDoc in vacciniResult) {
                                     val id = vacDoc.id
-                                    val nome = vacDoc.getString("nome") ?: id
-                                    val tipo = vacDoc.getString("tipo") ?: ""
+
+                                    val nome = vacDoc.getString(campoNome) ?: vacDoc.getString("nome_en") ?: id
+                                    val tipo = vacDoc.getString(campoTipo) ?: vacDoc.getString("tipo_en") ?: ""
 
                                     val quantita = mappaQuantita[id] ?: 0
                                     listaFinale.add(ItemInventario(nome, tipo, quantita))
                                 }
 
                                 progressBar.visibility = View.GONE
-                                tvHospitalInfo.text = "Sede: $nomeOspedaleBello\nTotale dosi a magazzino: ${listaFinale.sumOf { it.quantita }}"
+
+                                // Localizziamo anche la stringa di recap dell'ospedale
+                                val totaleDosi = listaFinale.sumOf { it.quantita }
+                                tvHospitalInfo.text = getString(R.string.hospital_inventory_info, nomeOspedaleBello, totaleDosi)
                                 tvHospitalInfo.visibility = View.VISIBLE
 
                                 rvVaccini.visibility = View.VISIBLE
@@ -105,16 +112,16 @@ class InventoryFragment : Fragment(R.layout.fragment_inventory) {
 
                             }.addOnFailureListener {
                                 progressBar.visibility = View.GONE
-                                Toast.makeText(requireContext(), "Errore catalogo vaccini", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), getString(R.string.error_vaccine_catalog), Toast.LENGTH_SHORT).show()
                             }
 
                         }.addOnFailureListener {
                             progressBar.visibility = View.GONE
-                            Toast.makeText(requireContext(), "Inventario non trovato nel database", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), getString(R.string.error_inventory_not_found), Toast.LENGTH_SHORT).show()
                         }
                 }.addOnFailureListener {
                     progressBar.visibility = View.GONE
-                    Toast.makeText(requireContext(), "Errore dati medico", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.error_doctor_data), Toast.LENGTH_SHORT).show()
                 }
         }
     }
