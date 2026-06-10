@@ -127,23 +127,9 @@
         android:text="@string/btn_guest"
         app:icon="@drawable/icona_ospite"
         app:iconPadding="@dimen/icon_button_padding"
-        app:layout_constraintBottom_toTopOf="@id/tvFooter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dividerContainer"/>
-
-    <TextView
-        android:id="@+id/tvFooter"
-        style="@style/TextAppearance.VaxMate.Body"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_xl"
-        android:gravity="center"
-        android:linksClickable="true"
-        android:text="@string/footer_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnGuest" />
+        app:layout_constraintTop_toBottomOf="@id/dividerContainer"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
