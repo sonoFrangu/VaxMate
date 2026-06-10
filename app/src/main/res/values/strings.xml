@@ -97,4 +97,7 @@
 
     <string name="disclaimer_titolo">Disclaimer Medico</string>
     <string name="disclaimer_testo">Attenzione: questo software è un sistema di supporto decisionale a scopo didattico/informativo e non sostituisce in alcun modo il giudizio clinico finale del medico specialista.</string>
+
+    <string name="guest_not_available_message">Funzione non disponibile per ospiti.</string>
+
 </resources>
