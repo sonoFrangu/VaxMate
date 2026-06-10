@@ -81,7 +81,7 @@
         <item>Severe immunodeficiency</item>
     </string-array>
 
-    <string name="menu_logout">Logout</string>
+    <string name="menu_logout">Exit</string>
 
     <string name="title_linee_guida">Clinical Guidelines</string>
 
