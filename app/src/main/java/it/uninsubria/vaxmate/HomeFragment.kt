@@ -117,9 +117,10 @@ class HomeFragment : Fragment() {
 
         binding.layoutListaVaccini.removeAllViews()
 
-        aggiungiCardVaccini(risultato.raccomandati, "Raccomandato", R.color.bg_raccomandati, R.color.text_raccomandati, R.drawable.ic_check)
-        aggiungiCardVaccini(risultato.possibili, "Possibile", R.color.bg_possibili, R.color.text_possibili, R.drawable.ic_info)
-        aggiungiCardVaccini(risultato.controindicati, "Controindicato", R.color.bg_controindicati, R.color.text_controindicati, R.drawable.ic_cross)
+        // CORREZIONE 1: Utilizziamo getString() recuperando le etichette localizzate dai file strings.xml
+        aggiungiCardVaccini(risultato.raccomandati, getString(R.string.status_recommended), R.color.bg_raccomandati, R.color.text_raccomandati, R.drawable.ic_check)
+        aggiungiCardVaccini(risultato.possibili, getString(R.string.status_possible), R.color.bg_possibili, R.color.text_possibili, R.drawable.ic_info)
+        aggiungiCardVaccini(risultato.controindicati, getString(R.string.status_contraindicated), R.color.bg_controindicati, R.color.text_controindicati, R.drawable.ic_cross)
 
         binding.infoCard.visibility = View.GONE
         binding.layoutRisultati.visibility = View.VISIBLE
@@ -147,12 +148,16 @@ class HomeFragment : Fragment() {
             ivIcona.setImageResource(iconRes)
             ivIcona.setColorFilter(ContextCompat.getColor(requireContext(), colorTextRes))
 
-            tvNome.text = vaccino.nome
+            // CORREZIONE 2: Usiamo la nostra nuova funzione helper bilingue
+            tvNome.text = vaccino.getNomeLocalizzato()
+
             tvStato.text = testoStato
             tvStato.setTextColor(ContextCompat.getColor(requireContext(), colorTextRes))
 
-            val tipo = vaccino.tipo ?: "Non specificato"
-            tvTipo.text = "Tipo: $tipo"
+            // CORREZIONE 3: Usiamo una stringa formattata nelle resources per evitare il "Tipo: " fisso in italiano
+            val tipoLocalizzato = vaccino.getTipoLocalizzato()
+            val tipoMostrato = if (tipoLocalizzato.isNotEmpty()) tipoLocalizzato else getString(R.string.not_specified)
+            tvTipo.text = getString(R.string.vaccine_type_placeholder, tipoMostrato)
 
             binding.layoutListaVaccini.addView(cardView)
         }

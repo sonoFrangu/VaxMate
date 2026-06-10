@@ -102,4 +102,10 @@
     <string name="guest_not_available_message">Funzione non disponibile per ospiti.</string>
     <string name="title_profile">Profilo</string>
 
+    <string name="status_recommended">Raccomandato</string>
+    <string name="status_possible">Possibile</string>
+    <string name="status_contraindicated">Controindicato</string>
+    <string name="not_specified">Non specificato</string>
+    <string name="vaccine_type_placeholder">Tipo: %1$s</string>
+
 </resources>
