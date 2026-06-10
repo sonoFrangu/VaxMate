@@ -13,7 +13,6 @@
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
     <string name="hint_email">address@clinic.com</string>
-    <string name="forgot_password">Forgot password?</string>
     <string name="btn_login_text">Login</string>
     <string name="no_account_register">Don\'t have an account?</string>
     <string name="register_word">Sign up</string>

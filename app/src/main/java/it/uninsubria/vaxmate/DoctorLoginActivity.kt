@@ -92,12 +92,9 @@ class DoctorLoginActivity : BaseActivity() {
         }
 
         //TODO: se abbiamo voglia fare psw dimenticata
-        binding.tvPsw.setOnClickListener {
-            MaterialAlertDialogBuilder(this).setTitle("Sai cosa devi fare?")
-                .setMessage("ARRANGIATI! La prossima volta te la ricordi")
-                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss()
-                }
-                .show()
+        binding.tvGuest.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
