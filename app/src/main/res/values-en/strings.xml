@@ -118,4 +118,6 @@
     <string name="error_vaccine_catalog">Error loading vaccine catalog</string>
     <string name="error_inventory_not_found">Inventory not found in the database for this facility</string>
     <string name="error_doctor_data">Error retrieving doctor data</string>
+
+    <string name="doses_format">%1$d doses</string>
 </resources>

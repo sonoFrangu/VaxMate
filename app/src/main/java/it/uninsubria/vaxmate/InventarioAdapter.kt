@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.play.integrity.internal.t
 
 class InventarioAdapter(private var lista: List<ItemInventario>) :
     RecyclerView.Adapter<InventarioAdapter.ViewHolder>() {
@@ -22,9 +23,20 @@ class InventarioAdapter(private var lista: List<ItemInventario>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = lista[position]
+        val context = holder.itemView.context
+
         holder.tvNome.text = item.nome
-        holder.tvTipo.text = "Tipo: ${item.tipo.replace("_", " ").replaceFirstChar { it.uppercase() }}"
-        holder.tvQuantita.text = "${item.quantita} dosi"
+
+        val tipoTesto = if (item.tipo.isNotEmpty()) {
+            item.tipo
+                .replace("_", " ")
+                .replaceFirstChar { it.uppercase() }
+        } else {
+            context.getString(R.string.not_specified)
+        }
+        holder.tvTipo.text = context.getString(R.string.vaccine_type_placeholder, tipoTesto)
+        holder.tvQuantita.text = context.getString(R.string.doses_format, item.quantita)
+
     }
 
     override fun getItemCount() = lista.size

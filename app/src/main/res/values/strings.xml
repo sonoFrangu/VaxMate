@@ -119,4 +119,6 @@
     <string name="error_inventory_not_found">Inventario non trovato nel database per questa struttura</string>
     <string name="error_doctor_data">Errore nel recupero dei dati del medico</string>
 
+    <string name="doses_format">%1$d dosi</string>
+
 </resources>
