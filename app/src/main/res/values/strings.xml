@@ -100,6 +100,13 @@
     <string name="title_inventory">Inventario Vaccini</string>
     <string name="guest_not_available_message">Funzione non disponibile per ospiti.</string>
     <string name="title_profile">Profilo</string>
+    <string name="lb_medico">Medico Vaccinatore</string>
+    <string name="lb_dati">Dati Personali</string>
+    <string name="lb_nome_cognome">NOME E COGNOME</string>
+    <string name="lb_contatti">Contatti</string>
+    <string name="lb_email">EMAIL</string>
+    <string name="lb_affiliazione">Affiliazione</string>
+    <string name="lb_struttura">STRUTTURA</string>
 
     <string name="status_recommended">Raccomandato</string>
     <string name="status_possible">Possibile</string>

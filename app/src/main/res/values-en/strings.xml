@@ -100,6 +100,13 @@
     <string name="title_inventory">Vaccine Inventory</string>
     <string name="guest_not_available_message">Feature not available for guests.</string>
     <string name="title_profile">Profile</string>
+    <string name="lb_medico">Vaccinating Physician</string>
+    <string name="lb_dati">Personal Data</string>
+    <string name="lb_nome_cognome">FIRST AND LAST NAME</string>
+    <string name="lb_contatti">Contacts</string>
+    <string name="lb_email">EMAIL</string>
+    <string name="lb_affiliazione">Affiliation</string>
+    <string name="lb_struttura">STRUCTURE</string>
 
     <string name="status_recommended">Recommended</string>
     <string name="status_possible">Possible</string>
