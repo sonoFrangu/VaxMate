@@ -34,7 +34,7 @@ L'obiettivo del nostro progetto è fornire indicazioni vaccinali per i pazienti 
 
 ## UI/UX Design (Figma)
 
-[![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/7zWD49XMe99YJPTdmZsvjV/VaxMate?node-id=0-1&t=iaSqvH0pS3Fm0CN6-1))
+[![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/7zWD49XMe99YJPTdmZsvjV/VaxMate?node-id=0-1&t=iaSqvH0pS3Fm0CN6-1)
 
 Prima di passare alla scrittura del codice in Android Studio, abbiamo progettato e curato l'esperienza utente e l'interfaccia grafica dell'applicazione.
 
