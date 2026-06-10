@@ -81,7 +81,7 @@
         <item>Immunodeficienza severa</item>
     </string-array>
 
-    <string name="menu_logout">Logout</string>
+    <string name="menu_logout">Esci</string>
 
     <string name="title_linee_guida">Linee Guida Cliniche</string>
 
