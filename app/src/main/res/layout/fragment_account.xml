@@ -78,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_xs"
-                    android:text="Medico Vaccinatore" />
+                    android:text="@string/lb_medico" />
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
@@ -109,13 +109,13 @@
                             style="@style/TextAppearance.VaxMate.Subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Dati Personali"
+                            android:text="@string/lb_dati"
                             android:textStyle="bold" />
                         <TextView
                             style="@style/TextAppearance.VaxMate.Subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="NOME E COGNOME"
+                            android:text="@string/lb_nome_cognome"
                             android:textSize="11sp"
                             android:layout_marginTop="@dimen/space_sm" />
                         <TextView
@@ -156,13 +156,13 @@
                             style="@style/TextAppearance.VaxMate.Subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Contatti"
+                            android:text="@string/lb_contatti"
                             android:textStyle="bold" />
                         <TextView
                             style="@style/TextAppearance.VaxMate.Subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="EMAIL"
+                            android:text="@string/lb_email"
                             android:textSize="11sp"
                             android:layout_marginTop="@dimen/space_sm" />
                         <TextView
@@ -202,13 +202,13 @@
                             style="@style/TextAppearance.VaxMate.Subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Affiliazione"
+                            android:text="@string/lb_affiliazione"
                             android:textStyle="bold" />
                         <TextView
                             style="@style/TextAppearance.VaxMate.Subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="STRUTTURA"
+                            android:text="@string/lb_struttura"
                             android:textSize="11sp"
                             android:layout_marginTop="@dimen/space_sm" />
                         <TextView
@@ -228,7 +228,7 @@
                 android:layout_height="@dimen/button_height"
                 android:layout_marginHorizontal="@dimen/space_lg"
                 android:layout_marginTop="@dimen/space_xl"
-                android:text="Esci" />
+                android:text="@string/menu_logout" />
 
         </LinearLayout>
     </ScrollView>

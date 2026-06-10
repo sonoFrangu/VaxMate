@@ -91,7 +91,6 @@ class DoctorLoginActivity : BaseActivity() {
             finish()
         }
 
-        //TODO: se abbiamo voglia fare psw dimenticata
         binding.tvGuest.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
