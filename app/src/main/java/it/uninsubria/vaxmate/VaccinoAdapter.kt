@@ -22,14 +22,22 @@ class VaccinoAdapter(private var listaVaccini: List<Vaccino>) :
 
     override fun onBindViewHolder(holder: VaccinoViewHolder, position: Int) {
         val vaccino = listaVaccini[position]
+        val context = holder.itemView.context
+
         holder.tvNome.text = vaccino.getNomeLocalizzato()
-        holder.tvTipo.text = "Tipo: ${vaccino.getTipoLocalizzato()}"
+
+        val tipoGrezzo = vaccino.getTipoLocalizzato()
+        val tipoFormattato = if (tipoGrezzo.isNotEmpty()) {
+            tipoGrezzo
+                .replace("_", " ")
+                .replaceFirstChar { it.uppercase() }
+        } else {
+            context.getString(R.string.not_specified)
+        }
+
+        holder.tvTipo.text = context.getString(R.string.vaccine_type_placeholder, tipoFormattato)
     }
 
     override fun getItemCount() = listaVaccini.size
 
-    fun aggiornaDati(nuovaLista: List<Vaccino>) {
-        listaVaccini = nuovaLista
-        notifyDataSetChanged()
-    }
 }
