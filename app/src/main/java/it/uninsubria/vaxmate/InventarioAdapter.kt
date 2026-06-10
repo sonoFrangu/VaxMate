@@ -27,7 +27,13 @@ class InventarioAdapter(private var lista: List<ItemInventario>) :
 
         holder.tvNome.text = item.nome
 
-        val tipoTesto = if(item.tipo.isNotEmpty()) item.tipo else context.getString(R.string.not_specified)
+        val tipoTesto = if (item.tipo.isNotEmpty()) {
+            item.tipo
+                .replace("_", " ")
+                .replaceFirstChar { it.uppercase() }
+        } else {
+            context.getString(R.string.not_specified)
+        }
         holder.tvTipo.text = context.getString(R.string.vaccine_type_placeholder, tipoTesto)
         holder.tvQuantita.text = context.getString(R.string.doses_format, item.quantita)
 
