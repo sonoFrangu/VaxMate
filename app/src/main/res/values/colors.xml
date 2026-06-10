@@ -28,4 +28,7 @@
 
     <color name="bg_controindicati">#FFEBEE</color>
     <color name="text_controindicati">#C62828</color>
+
+    <color name="warning_yellow">#FFC107</color>
+    <color name="warning_red">#D32F2F</color>
 </resources>
