@@ -1,10 +1,12 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import it.uninsubria.vaxmate.R
+import it.uninsubria.vaxmate.models.Vaccino
 
 class VaccinoAdapter(private var listaVaccini: List<Vaccino>) :
     RecyclerView.Adapter<VaccinoAdapter.VaccinoViewHolder>() {

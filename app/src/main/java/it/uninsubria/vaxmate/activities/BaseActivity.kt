@@ -1,12 +1,12 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.activities
 
-import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import com.google.android.material.imageview.ShapeableImageView
+import it.uninsubria.vaxmate.R
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -29,7 +29,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     protected fun isNetworkAvailable(): Boolean {
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)

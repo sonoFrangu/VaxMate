@@ -1,15 +1,15 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.activities
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.widget.Toast
-import androidx.annotation.ColorInt
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
 import com.google.firebase.auth.FirebaseAuth
+import it.uninsubria.vaxmate.activities.MainActivity
+import it.uninsubria.vaxmate.R
 import it.uninsubria.vaxmate.databinding.ActivityLoginBinding
 
 class LoginActivity : BaseActivity() {
@@ -36,10 +36,10 @@ class LoginActivity : BaseActivity() {
         binding.btnRegister.isEnabled = reteDisponibile
 
         if (!reteDisponibile) {
-            binding.btnLogin.setBackgroundColor(android.graphics.Color.GRAY)
-            binding.btnRegister.setTextColor(android.graphics.Color.GRAY)
-            binding.btnRegister.strokeColor = android.content.res.ColorStateList.valueOf(android.graphics.Color.GRAY)
-            binding.btnRegister.iconTint = android.content.res.ColorStateList.valueOf(android.graphics.Color.GRAY)
+            binding.btnLogin.setBackgroundColor(Color.GRAY)
+            binding.btnRegister.setTextColor(Color.GRAY)
+            binding.btnRegister.strokeColor = ColorStateList.valueOf(Color.GRAY)
+            binding.btnRegister.iconTint = ColorStateList.valueOf(Color.GRAY)
             Toast.makeText(this, "Connessione internet assente. Login disabilitato.", Toast.LENGTH_LONG).show()
         }
 

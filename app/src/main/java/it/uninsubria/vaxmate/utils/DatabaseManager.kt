@@ -1,7 +1,8 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.utils
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import it.uninsubria.vaxmate.models.Vaccino
 
 class DatabaseManager {
 

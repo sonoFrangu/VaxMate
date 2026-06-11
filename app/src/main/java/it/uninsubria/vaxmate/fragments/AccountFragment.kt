@@ -1,7 +1,9 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
@@ -14,6 +16,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
+import it.uninsubria.vaxmate.utils.DatabaseManager
+import it.uninsubria.vaxmate.R
+import it.uninsubria.vaxmate.activities.DoctorLoginActivity
+import it.uninsubria.vaxmate.activities.LoginActivity
+import it.uninsubria.vaxmate.activities.RegisterActivity
 
 class AccountFragment : Fragment(R.layout.fragment_account) {
 
@@ -51,10 +58,10 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
             btnRegister.isEnabled = reteDisponibile
 
             if (!reteDisponibile) {
-                btnLogin.setBackgroundColor(android.graphics.Color.GRAY)
-                btnRegister.setTextColor(android.graphics.Color.GRAY)
-                btnRegister.strokeColor = android.content.res.ColorStateList.valueOf(android.graphics.Color.GRAY)
-                btnRegister.iconTint = android.content.res.ColorStateList.valueOf(android.graphics.Color.GRAY)
+                btnLogin.setBackgroundColor(Color.GRAY)
+                btnRegister.setTextColor(Color.GRAY)
+                btnRegister.strokeColor = ColorStateList.valueOf(Color.GRAY)
+                btnRegister.iconTint = ColorStateList.valueOf(Color.GRAY)
             }
 
             btnLogin.setOnClickListener { startActivity(Intent(requireContext(), DoctorLoginActivity::class.java)) }

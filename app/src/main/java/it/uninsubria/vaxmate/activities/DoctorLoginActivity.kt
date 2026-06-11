@@ -1,4 +1,4 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,10 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.WindowManager
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import it.uninsubria.vaxmate.utils.DatabaseManager
+import it.uninsubria.vaxmate.R
 import it.uninsubria.vaxmate.databinding.ActivityDoctorLoginBinding
 
 class DoctorLoginActivity : BaseActivity() {

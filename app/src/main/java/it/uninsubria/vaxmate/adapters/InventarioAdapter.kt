@@ -1,11 +1,12 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.play.integrity.internal.t
+import it.uninsubria.vaxmate.R
+import it.uninsubria.vaxmate.models.ItemInventario
 
 class InventarioAdapter(private var lista: List<ItemInventario>) :
     RecyclerView.Adapter<InventarioAdapter.ViewHolder>() {

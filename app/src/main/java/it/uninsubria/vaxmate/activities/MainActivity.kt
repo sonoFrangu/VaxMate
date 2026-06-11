@@ -1,9 +1,15 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import it.uninsubria.vaxmate.fragments.AccountFragment
+import it.uninsubria.vaxmate.fragments.HomeFragment
+import it.uninsubria.vaxmate.fragments.InventoryFragment
+import it.uninsubria.vaxmate.fragments.LineeGuidaFragment
+import it.uninsubria.vaxmate.R
 import it.uninsubria.vaxmate.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
@@ -23,7 +29,7 @@ class MainActivity : BaseActivity() {
         setupLanguageButton(binding.languageButton.btnLanguage)
 
         binding.imgLogo.setOnClickListener { view ->
-            val popupMenu = android.widget.PopupMenu(this, view)
+            val popupMenu = PopupMenu(this, view)
             popupMenu.menuInflater.inflate(R.menu.logo_menu, popupMenu.menu)
 
             popupMenu.setOnMenuItemClickListener { item ->

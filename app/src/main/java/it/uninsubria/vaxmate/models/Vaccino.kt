@@ -1,4 +1,4 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.models
 
 import java.util.Locale
 

@@ -1,4 +1,7 @@
-package it.uninsubria.vaxmate
+package it.uninsubria.vaxmate.utils
+
+import it.uninsubria.vaxmate.models.RisultatoVaccini
+import it.uninsubria.vaxmate.models.Vaccino
 
 class VacciniManager {
 
@@ -10,7 +13,7 @@ class VacciniManager {
             "anti-tnf", "antitnf" -> "Anti-TNF"
             "corticosteroidi alto dosaggio", "high-dose corticosteroids", "corticosteroidi" -> "Corticosteroidi alto dosaggio"
             "chemioterapia", "chemotherapy" -> "Chemioterapia"
-            else -> null // La parola non esiste
+            else -> null
         }
     }
 
@@ -24,7 +27,7 @@ class VacciniManager {
             "asma cronica", "chronic asthma", "asma" -> "Asma cronica"
             "gravidanza", "pregnancy" -> "Gravidanza"
             "immunodeficienza severa", "severe immunodeficiency", "immunodeficienza" -> "Immunodeficienza severa"
-            else -> null // La parola non esiste
+            else -> null
         }
     }
 

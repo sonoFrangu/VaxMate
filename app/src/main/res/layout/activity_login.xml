@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/surface"
     android:padding="@dimen/space_lg"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <include
         android:id="@+id/languageButton"
