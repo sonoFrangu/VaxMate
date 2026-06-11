@@ -20,6 +20,28 @@ L'obiettivo del nostro progetto è fornire indicazioni vaccinali per i pazienti 
 
 ---
 
+## Screenshot applicazione
+
+<p align="center">
+  <img src="screenshots/1_home.PNG" width="19%" />
+  <img src="screenshots/2_risultati.PNG" width="19%" />
+  <img src="screenshots/3_login.PNG" width="19%" />
+  <img src="screenshots/4_inventario.PNG" width="19%" />
+  <img src="screenshots/5_account.PNG" width="19%" />
+</p>
+
+---
+
+## UI/UX Design (Figma)
+
+[![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/7zWD49XMe99YJPTdmZsvjV/VaxMate?node-id=0-1&t=iaSqvH0pS3Fm0CN6-1)
+
+Prima di passare alla scrittura del codice in Android Studio, abbiamo progettato e curato l'esperienza utente e l'interfaccia grafica dell'applicazione.
+
+ **[Prototipo su Figma](https://www.figma.com/design/7zWD49XMe99YJPTdmZsvjV/VaxMate?node-id=0-1&t=iaSqvH0pS3Fm0CN6-1)**
+
+---
+
 ## Stack Tecnologico e Architettura
 
 * **Linguaggio:** Kotlin

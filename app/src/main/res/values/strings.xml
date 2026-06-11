@@ -6,7 +6,6 @@
     <string name="btn_register">Registrazione</string>
     <string name="text_or">OPPURE</string>
     <string name="btn_guest">Accedi come ospite</string>
-    <string name="footer_text"><![CDATA[Continuando, accetti i <a href="https://example.com/termini">Termini di Servizio</a> e la <a href="https://example.com/privacy">Privacy Policy</a> di VaxMate.]]></string>
 
     <string name="login_title">Accedi a VaxMate</string>
     <string name="login_subtitle">Piattaforma Clinica Integrata</string>
