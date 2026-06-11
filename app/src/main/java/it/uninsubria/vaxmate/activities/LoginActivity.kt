@@ -30,6 +30,7 @@ class LoginActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.tvFooter.text = Html.fromHtml( getString(R.string.footer_text), Html.FROM_HTML_MODE_LEGACY )
+        binding.tvFooter.movementMethod = android.text.method.LinkMovementMethod.getInstance()
 
         val reteDisponibile = isNetworkAvailable()
 
