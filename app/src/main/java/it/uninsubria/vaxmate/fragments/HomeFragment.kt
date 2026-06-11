@@ -19,12 +19,14 @@ import it.uninsubria.vaxmate.R
 import it.uninsubria.vaxmate.utils.VacciniManager
 import it.uninsubria.vaxmate.databinding.FragmentHomeBinding
 import it.uninsubria.vaxmate.models.Vaccino
+import it.uninsubria.vaxmate.utils.DatabaseManager
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private val databaseManager = DatabaseManager()
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     private var listaVacciniDalDB: List<Vaccino> = emptyList()
@@ -67,18 +69,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun scaricaVacciniDaFirebase() {
-        db.collection("Vaccini").get()
-            .addOnSuccessListener { result ->
-                val listaTemp = mutableListOf<Vaccino>()
-                for (document in result) {
-                    val vaccino = document.toObject(Vaccino::class.java)
-                    listaTemp.add(vaccino)
-                }
-                listaVacciniDalDB = listaTemp
-            }
-            .addOnFailureListener {
+        databaseManager.scaricaVaccini(
+            onSuccess = { listaScaricata ->
+                listaVacciniDalDB = listaScaricata
+            },
+            onFailure = {
                 Toast.makeText(requireContext(), getString(R.string.db_error), Toast.LENGTH_SHORT).show()
             }
+        )
     }
 
     private fun eseguiCalcolo() {

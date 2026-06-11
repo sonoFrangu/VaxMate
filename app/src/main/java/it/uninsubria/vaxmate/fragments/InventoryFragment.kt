@@ -17,19 +17,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import it.uninsubria.vaxmate.adapters.InventarioAdapter
 import it.uninsubria.vaxmate.R
 import it.uninsubria.vaxmate.activities.DoctorLoginActivity
 import it.uninsubria.vaxmate.activities.RegisterActivity
-import it.uninsubria.vaxmate.models.ItemInventario
-import java.util.Locale
+import it.uninsubria.vaxmate.adapters.InventarioAdapter
+import it.uninsubria.vaxmate.utils.DatabaseManager
 
 class InventoryFragment : Fragment(R.layout.fragment_inventory) {
 
     private lateinit var adapter: InventarioAdapter
     private val auth = FirebaseAuth.getInstance()
-    private val db = FirebaseFirestore.getInstance()
+    private val databaseManager = DatabaseManager()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -65,17 +63,11 @@ class InventoryFragment : Fragment(R.layout.fragment_inventory) {
                 btnRegister.iconTint = ColorStateList.valueOf(Color.GRAY)
             }
 
-            btnLogin.setOnClickListener { startActivity(
-                Intent(
-                    requireContext(),
-                    DoctorLoginActivity::class.java
-                )
-            ) }
-            btnRegister.setOnClickListener { startActivity(
-                Intent(
-                    requireContext(),
-                    RegisterActivity::class.java)
-                )
+            btnLogin.setOnClickListener {
+                startActivity(Intent(requireContext(), DoctorLoginActivity::class.java))
+            }
+            btnRegister.setOnClickListener {
+                startActivity(Intent(requireContext(), RegisterActivity::class.java))
             }
 
         } else {
@@ -83,72 +75,30 @@ class InventoryFragment : Fragment(R.layout.fragment_inventory) {
             layoutGuest.visibility = View.GONE
             progressBar.visibility = View.VISIBLE
 
-            db.collection("Medici").document(utenteCorrente.uid).get()
-                .addOnSuccessListener { document ->
-                    val nomeOspedaleBello = document.getString("ospedale") ?: ""
-
-                    val idDocumentoInventario = convertiNomeOspedaleInId(nomeOspedaleBello)
-
-                    db.collection("Inventari").document(idDocumentoInventario).get()
-                        .addOnSuccessListener { invDoc ->
-                            val lotti = invDoc.get("lotti") as? List<Map<String, Any>> ?: emptyList()
-
-                            val mappaQuantita = mutableMapOf<String, Int>()
-                            for (lotto in lotti) {
-                                val idVac = lotto["id_vaccino"] as? String ?: continue
-                                val qta = (lotto["quantita"] as? Number)?.toInt() ?: 0
-                                mappaQuantita[idVac] = mappaQuantita.getOrDefault(idVac, 0) + qta
-                            }
-
-                            db.collection("Vaccini").get().addOnSuccessListener { vacciniResult ->
-                                val listaFinale = mutableListOf<ItemInventario>()
-
-                                val lingua = Locale.getDefault().language
-                                val campoNome = if (lingua == "en") "nome_en" else "nome_it"
-                                val campoTipo = if (lingua == "en") "tipo_en" else "tipo_it"
-
-                                for (vacDoc in vacciniResult) {
-                                    val id = vacDoc.id
-
-                                    val nome = vacDoc.getString(campoNome) ?: vacDoc.getString("nome_en") ?: id
-                                    val tipo = vacDoc.getString(campoTipo) ?: vacDoc.getString("tipo_en") ?: ""
-
-                                    val quantita = mappaQuantita[id] ?: 0
-                                    listaFinale.add(ItemInventario(nome, tipo, quantita))
-                                }
-
-                                progressBar.visibility = View.GONE
-
-                                // Localizziamo anche la stringa di recap dell'ospedale
-                                val totaleDosi = listaFinale.sumOf { it.quantita }
-                                tvHospitalInfo.text = getString(R.string.hospital_inventory_info, nomeOspedaleBello, totaleDosi)
-                                tvHospitalInfo.visibility = View.VISIBLE
-
-                                rvVaccini.visibility = View.VISIBLE
-                                adapter.aggiornaDati(listaFinale.sortedByDescending { it.quantita })
-
-                            }.addOnFailureListener {
-                                progressBar.visibility = View.GONE
-                                Toast.makeText(requireContext(), getString(R.string.error_vaccine_catalog), Toast.LENGTH_SHORT).show()
-                            }
-
-                        }.addOnFailureListener {
-                            progressBar.visibility = View.GONE
-                            Toast.makeText(requireContext(), getString(R.string.error_inventory_not_found), Toast.LENGTH_SHORT).show()
-                        }
-                }.addOnFailureListener {
+            databaseManager.scaricaInventarioMedico(
+                userId = utenteCorrente.uid,
+                onSuccess = { nomeOspedale, listaInventario ->
                     progressBar.visibility = View.GONE
-                    Toast.makeText(requireContext(), getString(R.string.error_doctor_data), Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
 
-    private fun convertiNomeOspedaleInId(nomeOspedale: String): String {
-        return when (nomeOspedale) {
-            "Ospedale di Circolo Varese" -> "ospedale_circolo"
-            "Ospedale Del Ponte" -> "ospedale_delponte"
-            "Ospedale di Como" -> "ospedale_como"
-            else -> nomeOspedale
+                    val totaleDosi = listaInventario.sumOf { it.quantita }
+                    tvHospitalInfo.text = getString(R.string.hospital_inventory_info, nomeOspedale, totaleDosi)
+                    tvHospitalInfo.visibility = View.VISIBLE
+
+                    rvVaccini.visibility = View.VISIBLE
+                    adapter.aggiornaDati(listaInventario.sortedByDescending { it.quantita })
+                },
+                onFailure = { codiceErrore ->
+                    progressBar.visibility = View.GONE
+
+                    val messaggioErrore = when(codiceErrore) {
+                        "error_doctor_data" -> getString(R.string.error_doctor_data)
+                        "error_inventory_not_found" -> getString(R.string.error_inventory_not_found)
+                        "error_vaccine_catalog" -> getString(R.string.error_vaccine_catalog)
+                        else -> getString(R.string.db_error)
+                    }
+                    Toast.makeText(requireContext(), messaggioErrore, Toast.LENGTH_SHORT).show()
+                }
+            )
         }
     }
 

@@ -2,6 +2,7 @@ package it.uninsubria.vaxmate.utils
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import it.uninsubria.vaxmate.models.ItemInventario
 import it.uninsubria.vaxmate.models.Vaccino
 
 class DatabaseManager {
@@ -39,7 +40,7 @@ class DatabaseManager {
         }
     }
 
-    fun getVaccini(onSuccess: (List<Vaccino>) -> Unit, onFailure: (Exception) -> Unit) {
+    fun scaricaVaccini(onSuccess: (List<Vaccino>) -> Unit, onFailure: (Exception) -> Unit) {
         db.collection("Vaccini").get()
             .addOnSuccessListener { result ->
                 val listaTemp = mutableListOf<Vaccino>()
@@ -66,6 +67,55 @@ class DatabaseManager {
             .addOnFailureListener { exception ->
                 onFailure(exception)
             }
+    }
+
+    fun scaricaInventarioMedico(
+        userId: String,
+        onSuccess: (nomeOspedale: String, inventario: List<ItemInventario>) -> Unit,
+        onFailure: (messaggioErrore: String) -> Unit
+    ) {
+        // 1. Prendo il medico
+        db.collection("Medici").document(userId).get().addOnSuccessListener { doc ->
+            val nomeOspedale = doc.getString("ospedale") ?: ""
+            val idInv = convertiNomeOspedaleInId(nomeOspedale)
+
+            db.collection("Inventari").document(idInv).get().addOnSuccessListener { invDoc ->
+                val lotti = invDoc.get("lotti") as? List<Map<String, Any>> ?: emptyList()
+                val mappaQuantita = mutableMapOf<String, Int>()
+                for (lotto in lotti) {
+                    val idVac = lotto["id_vaccino"] as? String ?: continue
+                    val qta = (lotto["quantita"] as? Number)?.toInt() ?: 0
+                    mappaQuantita[idVac] = mappaQuantita.getOrDefault(idVac, 0) + qta
+                }
+
+                db.collection("Vaccini").get().addOnSuccessListener { vacciniResult ->
+                    val listaFinale = mutableListOf<ItemInventario>()
+                    val lingua = java.util.Locale.getDefault().language
+                    val campoNome = if (lingua == "en") "nome_en" else "nome_it"
+                    val campoTipo = if (lingua == "en") "tipo_en" else "tipo_it"
+
+                    for (vacDoc in vacciniResult) {
+                        val id = vacDoc.id
+                        val nome = vacDoc.getString(campoNome) ?: vacDoc.getString("nome_en") ?: id
+                        val tipo = vacDoc.getString(campoTipo) ?: vacDoc.getString("tipo_en") ?: ""
+                        val quantita = mappaQuantita[id] ?: 0
+                        listaFinale.add(ItemInventario(nome, tipo, quantita))
+                    }
+
+                    onSuccess(nomeOspedale, listaFinale)
+
+                }.addOnFailureListener { onFailure("error_vaccine_catalog") }
+            }.addOnFailureListener { onFailure("error_inventory_not_found") }
+        }.addOnFailureListener { onFailure("error_doctor_data") }
+    }
+
+    private fun convertiNomeOspedaleInId(nomeOspedale: String): String {
+        return when (nomeOspedale) {
+            "Ospedale di Circolo Varese" -> "ospedale_circolo"
+            "Ospedale Del Ponte" -> "ospedale_delponte"
+            "Ospedale di Como" -> "ospedale_como"
+            else -> nomeOspedale
+        }
     }
 
     /*fun popolaDatabaseVaccini(callback: (Boolean) -> Unit) {
