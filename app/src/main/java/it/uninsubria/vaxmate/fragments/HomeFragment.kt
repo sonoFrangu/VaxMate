@@ -138,9 +138,7 @@ class HomeFragment : Fragment() {
             tvStato.text = testoStato
             tvStato.setTextColor(ContextCompat.getColor(requireContext(), colorTextRes))
 
-            val tipoLocalizzato = vaccino.getTipoLocalizzato()
-            val tipoMostrato = if (tipoLocalizzato.isNotEmpty()) tipoLocalizzato else getString(R.string.not_specified)
-            tvTipo.text = getString(R.string.vaccine_type_placeholder, tipoMostrato)
+            tvTipo.text = UIUtils.formattaTipoVaccino(requireContext(), vaccino.getTipoLocalizzato())
 
             binding.layoutListaVaccini.addView(cardView)
         }
