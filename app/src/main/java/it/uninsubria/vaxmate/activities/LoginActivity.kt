@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import it.uninsubria.vaxmate.activities.MainActivity
@@ -29,8 +30,12 @@ class LoginActivity : BaseActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvFooter.text = Html.fromHtml( getString(R.string.footer_text), Html.FROM_HTML_MODE_LEGACY )
-        binding.tvFooter.movementMethod = android.text.method.LinkMovementMethod.getInstance()
+        binding.tvFooter.text = Html.fromHtml(
+            getString(R.string.footer_text),
+            Html.FROM_HTML_MODE_LEGACY
+        )
+
+        binding.tvFooter.movementMethod = LinkMovementMethod.getInstance()
 
         val reteDisponibile = isNetworkAvailable()
 
