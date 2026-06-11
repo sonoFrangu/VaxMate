@@ -6,6 +6,7 @@
     <string name="btn_register">Registrazione</string>
     <string name="text_or">OPPURE</string>
     <string name="btn_guest">Accedi come ospite</string>
+    <string name="footer_text"><![CDATA[Continuando, accetti i <a href="https://resteghinicelestino.altervista.org/termini_servizio.html">Termini di Servizio</a> e la <a href="https://resteghinicelestino.altervista.org/privacy_policy.html">Privacy Policy</a> di VaxMate.]]></string>
 
     <string name="login_title">Accedi a VaxMate</string>
     <string name="login_subtitle">Piattaforma Clinica Integrata</string>
