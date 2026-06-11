@@ -118,6 +118,20 @@ class DatabaseManager {
         }
     }
 
+    fun ottieniCognomeMedico(uid: String, onComplete: (String) -> Unit) {
+        db.collection("Medici").document(uid).get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    onComplete(document.getString("cognome") ?: "")
+                } else {
+                    onComplete("")
+                }
+            }
+            .addOnFailureListener {
+                onComplete("")
+            }
+    }
+
     /*fun popolaDatabaseVaccini(callback: (Boolean) -> Unit) {
         val db = FirebaseFirestore.getInstance()
         val vacciniRef = db.collection("Vaccini")
